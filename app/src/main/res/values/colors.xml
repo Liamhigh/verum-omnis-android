@@ -1,0 +1,14 @@
+<resources>
+    <color name="verum_blue">#0C3C78</color>
+    <color name="steel_grey">#30343A</color>
+    <color name="pure_white">#FFFFFFFF</color>
+    <color name="verum_navy_deep">#03152D</color>
+    <color name="verum_navy_dark">#072347</color>
+    <color name="verum_midnight">#061A37</color>
+    <color name="verum_glow">#40309BFF</color>
+    <color name="verum_glow_soft">#261FD9FF</color>
+    <color name="verum_button_start">#348BFF</color>
+    <color name="verum_button_end">#2458D3</color>
+    <color name="verum_text_soft">#D4E6FF</color>
+    <color name="verum_gold">#F7D27A</color>
+</resources>

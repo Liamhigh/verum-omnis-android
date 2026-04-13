@@ -1,0 +1,15 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme -->
+    <style name="Theme.VerumOmnis" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/verum_button_start</item>
+        <item name="colorPrimaryVariant">@color/verum_navy_dark</item>
+        <item name="colorSecondary">@color/verum_gold</item>
+        <item name="android:statusBarColor">@color/verum_navy_deep</item>
+        <item name="android:navigationBarColor">@color/verum_navy_deep</item>
+        <item name="android:textColor">@color/pure_white</item>
+        <item name="android:colorBackground">@color/verum_navy_deep</item>
+        <item name="colorSurface">@color/verum_navy_dark</item>
+    </style>
+
+</resources>

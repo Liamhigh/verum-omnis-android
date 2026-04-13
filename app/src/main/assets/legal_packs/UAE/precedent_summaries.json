@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "jurisdiction": "UAE",
+    "document_type": "precedent_summaries",
+    "last_updated": "2026-03-26",
+    "authoritative_source": [
+      "https://uaelegislation.gov.ae/en/legislations/1373/download",
+      "https://uaelegislation.gov.ae/en/legislations/1526/download"
+    ]
+  },
+  "items": [
+    {
+      "id": "uae-precedent-caution-company",
+      "title": "UAE company disputes: lead with statutory rights before narrative grievances",
+      "text": "Gemma should frame UAE company disputes around the right affected, the management conduct, and the remedy sought, rather than leading with emotional narrative. Narrative material stays secondary to statute-driven relief analysis.",
+      "source": "Verum Omnis UAE grounding principle derived from primary company law",
+      "rank": 72,
+      "tags": [
+        "company dispute",
+        "rights",
+        "remedy"
+      ]
+    },
+    {
+      "id": "uae-precedent-caution-cyber",
+      "title": "UAE cyber complaints: preserve attribution gaps explicitly",
+      "text": "Where the sealed record supports a cybercrime concern but does not fully identify the actor, Gemma should preserve the allegation as a grounded access or data-interference concern and state the missing attribution evidence plainly.",
+      "source": "Verum Omnis UAE grounding principle derived from primary cybercrime law",
+      "rank": 71,
+      "tags": [
+        "cyber",
+        "attribution",
+        "gaps"
+      ]
+    }
+  ]
+}

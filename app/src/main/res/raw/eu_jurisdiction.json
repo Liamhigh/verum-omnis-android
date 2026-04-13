@@ -1,0 +1,8 @@
+{
+  "code": "EU",
+  "rules": [
+    "gdpr",
+    "eidas"
+  ],
+  "anchor": "eu-compliance"
+}

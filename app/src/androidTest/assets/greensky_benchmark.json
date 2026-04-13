@@ -1,0 +1,33 @@
+{
+  "caseId": "greensky-benchmark",
+  "guardianApproved": false,
+  "certifiedFindingsCount": 0,
+  "expectedNamedParties": [
+    "Marius Nortje",
+    "Liam Highcock",
+    "Kevin Lappeman"
+  ],
+  "forbiddenNamedParties": [
+    "Old Woman Angelfish",
+    "New Company Registration",
+    "Valerie Gounden Sent"
+  ],
+  "requiredSignalTerms": [
+    "shareholder",
+    "invoice",
+    "archive",
+    "greensky"
+  ],
+  "primaryEvidenceRegisters": [
+    "anchoredFindings",
+    "incidentRegister",
+    "timelineAnchorRegister",
+    "actorConductRegister",
+    "documentIntegrityFindings"
+  ],
+  "forbiddenPrimaryEvidenceTerms": [
+    "old woman angelfish",
+    "new company registration",
+    "valerie gounden sent"
+  ]
+}

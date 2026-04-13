@@ -1,0 +1,24 @@
+{
+  "version": "v5.1.1-LH",
+  "governance": {
+    "deterministic": true,
+    "no_remote_overrides": true,
+    "quorum_min": 3,
+    "r_and_d_voting": false,
+    "sealed_pdf_required": true
+  },
+  "non_negotiables": [
+    "TRUTH_PRIORITY",
+    "DETERMINISM",
+    "NO_HUMAN_OVERRIDES",
+    "INDEPENDENT_CORROBORATION",
+    "EXPLAINABILITY",
+    "MINIMAL_DISCLOSURE",
+    "SEALED_OUTPUTS"
+  ],
+  "decision_protocol": {
+    "tie_breaker": "B1_REQUEST_MORE_EVIDENCE",
+    "concealment_output": "INDETERMINATE_DUE_TO_CONCEALMENT"
+  },
+  "created_at": "2025-08-12T17:35:44.856874Z"
+}

@@ -1,0 +1,76 @@
+{
+  "metadata": {
+    "jurisdiction": "UAE",
+    "document_type": "statutes",
+    "last_updated": "2026-03-26",
+    "authoritative_source": [
+      "https://uaelegislation.gov.ae/en/legislations/1373/download",
+      "https://uaelegislation.gov.ae/en/legislations/1526/download"
+    ]
+  },
+  "items": [
+    {
+      "id": "uae-ccl-overview",
+      "title": "Federal Decree-Law No. (32) of 2021 Regarding Commercial Companies",
+      "text": "Primary UAE company-law source for corporate governance, shareholder rights, and remedies affecting company management disputes.",
+      "source": "UAE legislation portal",
+      "rank": 100,
+      "tags": [
+        "company",
+        "shareholder",
+        "governance",
+        "commercial companies"
+      ]
+    },
+    {
+      "id": "uae-ccl-member-rights",
+      "title": "Commercial Companies Law: member-rights and management-prejudice context",
+      "text": "Use this authority when the sealed findings point to exclusion from meetings, signature control, access to company information, or prejudicial management conduct affecting a shareholder or member.",
+      "source": "Federal Decree-Law No. (32) of 2021 Regarding Commercial Companies",
+      "rank": 97,
+      "tags": [
+        "shareholder exclusion",
+        "member rights",
+        "company records"
+      ]
+    },
+    {
+      "id": "uae-cybercrime-passwords",
+      "title": "Federal Decree-Law No. (34) of 2021 On Countering Rumors and Cybercrimes: Article 9",
+      "text": "The law criminalizes unauthorized acquisition of a PIN code, cipher, password, or similar access credential, and aggravates matters where those credentials are used to access a system to commit a crime.",
+      "source": "UAE legislation portal",
+      "rank": 99,
+      "tags": [
+        "password",
+        "credentials",
+        "access",
+        "cybercrime"
+      ]
+    },
+    {
+      "id": "uae-cybercrime-confidential-data",
+      "title": "Federal Decree-Law No. (34) of 2021 On Countering Rumors and Cybercrimes: Article 7 context",
+      "text": "The law treats unauthorized acquisition, alteration, disclosure, copying, or dissemination of confidential commercial or economic data as a serious offence category when done through information technology.",
+      "source": "UAE legislation portal",
+      "rank": 98,
+      "tags": [
+        "confidential data",
+        "commercial data",
+        "copying",
+        "disclosure"
+      ]
+    },
+    {
+      "id": "uae-cybercrime-evidence",
+      "title": "Federal Decree-Law No. (34) of 2021 On Countering Rumors and Cybercrimes: Article 65",
+      "text": "Electronic evidence derived from devices, media, systems, software, or information technology means is given probative force, which matters when sealed findings are being prepared for complaint or prosecution channels.",
+      "source": "UAE legislation portal",
+      "rank": 95,
+      "tags": [
+        "electronic evidence",
+        "probative force",
+        "forensic evidence"
+      ]
+    }
+  ]
+}

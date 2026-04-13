@@ -1,0 +1,63 @@
+{
+  "version": "constitutional-subject-keywords-v1",
+  "subjects": {
+    "Shareholder Oppression": [
+      "shareholder rights",
+      "50% shareholder",
+      "private meeting",
+      "denied meeting",
+      "excluded",
+      "oppression"
+    ],
+    "Breach of Fiduciary Duty": [
+      "fiduciary duty",
+      "self-dealing",
+      "conflict of interest",
+      "profit diversion",
+      "benefit to a related party"
+    ],
+    "Cybercrime": [
+      "unauthorized access",
+      "archive request",
+      "google archive",
+      "gmail archive",
+      "login alert",
+      "access attempt"
+    ],
+    "Fraudulent Evidence": [
+      "forged",
+      "forgery",
+      "doctored",
+      "cropped",
+      "tampered",
+      "fake"
+    ],
+    "Emotional Exploitation": [
+      "harassment",
+      "bullying",
+      "gaslighting",
+      "medical crisis",
+      "emotional"
+    ],
+    "Financial Irregularities": [
+      "invoice",
+      "wire transfer",
+      "bank transfer",
+      "swift",
+      "cash",
+      "kickback",
+      "goodwill",
+      "rent paid",
+      "payment due",
+      "repayment",
+      "profit share"
+    ],
+    "Concealment / Deletion": [
+      "delete",
+      "off the record",
+      "no email",
+      "other phone",
+      "keep it off"
+    ]
+  }
+}

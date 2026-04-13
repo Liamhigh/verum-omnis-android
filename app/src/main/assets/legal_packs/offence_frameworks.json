@@ -1,0 +1,86 @@
+{
+  "version": "1.0.0",
+  "frameworks": [
+    {
+      "id": "shareholder-oppression",
+      "title": "Shareholder oppression or exclusion",
+      "elements": [
+        "A shareholder or member right is identified",
+        "Conduct is prejudicial, unfairly discriminatory, or exclusionary",
+        "The conduct is anchored to dated records, company documents, or communications"
+      ],
+      "defences": [
+        "The complained-of act was authorized by the company constitution or law",
+        "The complaining party lacked the asserted right",
+        "The record does not anchor prejudice to the respondent's conduct"
+      ],
+      "remedies": [
+        "Court-supervised relief restoring rights or access",
+        "Orders regulating future governance conduct",
+        "Damages or a buy-out where the forum permits it"
+      ],
+      "source": "Gemma offence framework seed set",
+      "rank": 92,
+      "tags": [
+        "shareholder",
+        "oppression",
+        "company",
+        "governance"
+      ]
+    },
+    {
+      "id": "unauthorized-access",
+      "title": "Unauthorized account access or digital interference",
+      "elements": [
+        "The system, account, device, or credential is identified",
+        "Unauthorized access, possession, interference, or misuse is grounded in sealed findings",
+        "The conduct is linked to a forum-specific offence or complaint pathway"
+      ],
+      "defences": [
+        "Authorized access or delegated credentials",
+        "No reliable attribution to the accused actor",
+        "The record shows suspicion only, not anchored access conduct"
+      ],
+      "remedies": [
+        "Criminal complaint or cybercrime referral",
+        "Preservation of logs, devices, and access records",
+        "Interdict or protective procedural steps where available"
+      ],
+      "source": "Gemma offence framework seed set",
+      "rank": 91,
+      "tags": [
+        "cybercrime",
+        "access",
+        "password",
+        "account"
+      ]
+    },
+    {
+      "id": "document-execution-dispute",
+      "title": "Disputed execution of operative documents",
+      "elements": [
+        "The document and its legal function are identified",
+        "The record anchors a material conflict about signature, authorization, or operative status",
+        "The conflict affects rights, obligations, or filing posture"
+      ],
+      "defences": [
+        "A valid countersignature or ratification cured the defect",
+        "The disputed document was not legally operative",
+        "The contradiction is rhetorical rather than factual"
+      ],
+      "remedies": [
+        "Preservation order and disclosure requests",
+        "Declaratory or evidentiary relief",
+        "Complaint framing that separates proof issues from liability conclusions"
+      ],
+      "source": "Gemma offence framework seed set",
+      "rank": 87,
+      "tags": [
+        "signature",
+        "execution",
+        "document",
+        "proof"
+      ]
+    }
+  ]
+}

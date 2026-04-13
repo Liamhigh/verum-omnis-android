@@ -1,0 +1,636 @@
+{
+  "caseId": "case-a832ff436cc0bf79b245d5c",
+  "evidenceHash": "a832fff436cc0bf79b245d5ce266437ffe674ef48185086ccf4769b133bba2da47d2b4f6a7dcec8c54b8e8d84bccb8282775a5658f5a8bf384709663a144660ce",
+  "jurisdiction": "MULTI",
+  "jurisdictionName": "Multi-jurisdiction (UAE and South Africa)",
+  "summary": "Greensky shareholder dispute oracle with verified contradictions, profit-share non-payment, oppression pattern, and digital tampering findings.",
+  "guardianApproved": true,
+  "certifiedFindingsCount": 10,
+  "expectedNamedParties": [
+    "Marius Nortje",
+    "Liam Highcock",
+    "Kevin Lappeman"
+  ],
+  "forbiddenNamedParties": [
+    "Old Woman Angelfish",
+    "New Company Registration",
+    "Valerie Gounden Sent"
+  ],
+  "requiredSignalTerms": [
+    "shareholder",
+    "invoice",
+    "archive",
+    "greensky",
+    "whatsapp"
+  ],
+  "primaryEvidenceRegisters": [
+    "anchoredFindings",
+    "incidentRegister",
+    "timelineAnchorRegister",
+    "actorConductRegister",
+    "documentIntegrityFindings"
+  ],
+  "forbiddenPrimaryEvidenceTerms": [
+    "old woman angelfish",
+    "new company registration",
+    "valerie gounden sent"
+  ],
+  "requiredCertifiedFindingTypes": [
+    "CONTRADICTION",
+    "BREACH_OF_FIDUCIARY_DUTY",
+    "BREACH_OF_CONTRACT",
+    "FINANCIAL_IRREGULARITY",
+    "SHAREHOLDER_OPPRESSION",
+    "DOCUMENT_INTEGRITY",
+    "CYBERCRIME"
+  ],
+  "diagnostics": {
+    "keywords": [
+      "greensky",
+      "shareholder",
+      "invoice",
+      "archive"
+    ],
+    "entities": [
+      "Marius Nortje",
+      "Liam Highcock",
+      "Kevin Lappeman"
+    ],
+    "evasion": [
+      "ignored private meeting requests",
+      "retroactive termination framing"
+    ],
+    "contradictions": 3,
+    "concealment": [
+      "fabricated whatsapp screenshots",
+      "gmail archive request"
+    ],
+    "financial": [
+      "unpaid 30% share of export order",
+      "unpaid February salary"
+    ],
+    "processingStatus": "COMPLETED",
+    "contradictionRegister": [
+      {
+        "status": "VERIFIED",
+        "confidence": 0.98,
+        "actor": "Marius Nortje",
+        "propositionA": "Greensky Ornamentals has not conducted business with Kevin's Export.",
+        "propositionB": "Kevin's Export proceeded with the deal.",
+        "anchors": [
+          {
+            "page": 54
+          }
+        ]
+      },
+      {
+        "status": "VERIFIED",
+        "confidence": 0.95,
+        "actor": "Kevin Lappeman",
+        "propositionA": "Termination effective 15 April 2025.",
+        "propositionB": "Deal completed on 13 March 2025.",
+        "anchors": [
+          {
+            "page": 124
+          },
+          {
+            "page": 215
+          }
+        ]
+      },
+      {
+        "status": "VERIFIED",
+        "confidence": 0.99,
+        "actor": "Kevin Lappeman",
+        "propositionA": "No exclusivity agreement ever existed.",
+        "propositionB": "Agreement requires a 30% share on all export transactions.",
+        "anchors": [
+          {
+            "page": 17
+          },
+          {
+            "page": 212
+          }
+        ]
+      }
+    ]
+  },
+  "behavioralProfile": {
+    "riskScore": 85,
+    "actors": [
+      {
+        "name": "Marius Nortje",
+        "dishonestyScore": 85,
+        "severity": "SEVERE"
+      },
+      {
+        "name": "Kevin Lappeman",
+        "dishonestyScore": 70,
+        "severity": "HIGH"
+      }
+    ]
+  },
+  "nativeEvidence": {
+    "fileName": "greensky_case.pdf",
+    "evidenceHash": "a832fff436cc0bf79b245d5ce266437ffe674ef48185086ccf4769b133bba2da47d2b4f6a7dcec8c54b8e8d84bccb8282775a5658f5a8bf384709663a144660ce",
+    "pageCount": 332,
+    "sourcePageCount": 332,
+    "pipelineStatus": "COMPLETED",
+    "documentTextBlocks": 327
+  },
+  "tripleVerification": {
+    "thesis": {
+      "status": "PASS",
+      "reason": "Primary extraction surfaced anchored agreements, invoice, admissions, and digital notifications."
+    },
+    "antithesis": {
+      "status": "PASS",
+      "reason": "Contradiction review isolated three material conflicts and excluded narrative-only framing."
+    },
+    "synthesis": {
+      "status": "PASS",
+      "reason": "B1 synthesis aligns document, timeline, financial, and cyber indicators into actor-attributed findings."
+    },
+    "overall": {
+      "status": "PASS",
+      "reason": "Guardian-approved oracle expectation after constitutional asset and corroboration fixes."
+    }
+  },
+  "forensicSynthesis": {
+    "engineId": "verum_omnis_v1",
+    "summary": "B1 identifies Kevin Lappeman as the primary wrongful actor, with Marius Nortje carrying secondary factual fault for profit-share denial and exclusionary conduct.",
+    "crossBrainContradictions": [
+      {
+        "actor": "Marius Nortje",
+        "contradictionType": "admission_vs_denial",
+        "status": "VERIFIED",
+        "supportingBrains": [
+          "B1",
+          "B3",
+          "B5"
+        ],
+        "anchorPages": [
+          54
+        ]
+      },
+      {
+        "actor": "Kevin Lappeman",
+        "contradictionType": "timeline_mismatch",
+        "status": "VERIFIED",
+        "supportingBrains": [
+          "B1",
+          "B5",
+          "B6"
+        ],
+        "anchorPages": [
+          124,
+          215
+        ]
+      },
+      {
+        "actor": "Kevin Lappeman",
+        "contradictionType": "contract_vs_statement",
+        "status": "VERIFIED",
+        "supportingBrains": [
+          "B1",
+          "B2",
+          "B7"
+        ],
+        "anchorPages": [
+          17,
+          212
+        ]
+      }
+    ],
+    "actorDishonestyScores": [
+      {
+        "actor": "Marius Nortje",
+        "dishonestyScore": 85,
+        "severity": "SEVERE",
+        "flags": [
+          "contradictions",
+          "omissions",
+          "financial"
+        ]
+      },
+      {
+        "actor": "Kevin Lappeman",
+        "dishonestyScore": 70,
+        "severity": "HIGH",
+        "flags": [
+          "contradictions",
+          "concealment",
+          "cybercrime"
+        ]
+      }
+    ],
+    "actorHeatmap": {
+      "Marius Nortje": {
+        "contradictions": 30,
+        "selectiveOmissions": 20,
+        "evasionOrGaslighting": 10,
+        "patternsOfConcealment": 10,
+        "financialIrregularities": 15
+      },
+      "Kevin Lappeman": {
+        "contradictions": 30,
+        "selectiveOmissions": 10,
+        "evasionOrGaslighting": 10,
+        "patternsOfConcealment": 20,
+        "financialIrregularities": 5
+      }
+    },
+    "promotionSupportMatrix": [
+      {
+        "actor": "Marius Nortje",
+        "findingType": "CONTRADICTION",
+        "supportingBrains": [
+          "B1",
+          "B3",
+          "B5"
+        ],
+        "anchorPages": [
+          54
+        ],
+        "promotionEligible": true
+      },
+      {
+        "actor": "Kevin Lappeman",
+        "findingType": "BREACH_OF_CONTRACT",
+        "supportingBrains": [
+          "B1",
+          "B5",
+          "B6"
+        ],
+        "anchorPages": [
+          124,
+          215
+        ],
+        "promotionEligible": true
+      }
+    ],
+    "wrongfulActorProfile": {
+      "actor": "Kevin Lappeman",
+      "factualFaultAssessment": "Primary factual fault is driven by retroactive termination, contractual denial, digital tampering, and unauthorized-access indicators.",
+      "supportingContradictions": [
+        "Termination after deal completion",
+        "Denial of exclusivity versus signed agreement"
+      ],
+      "supportingBrains": [
+        "B1",
+        "B2",
+        "B5",
+        "B6",
+        "B7"
+      ],
+      "anchorPages": [
+        17,
+        38,
+        103,
+        124,
+        212,
+        215,
+        324
+      ]
+    }
+  },
+  "brainAnalysis": {
+    "brains": [
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "B5",
+      "B6",
+      "B7",
+      "B8",
+      "B9"
+    ],
+    "consensus": {
+      "verifiedFindingCount": 10
+    },
+    "b1Synthesis": {
+      "verifiedCrossBrainContradictions": 3,
+      "topLiabilityActors": [
+        "Kevin Lappeman",
+        "Marius Nortje"
+      ]
+    }
+  },
+  "guardianDecision": {
+    "approved": true,
+    "reason": "Oracle expectation after constitutional bundle verification and cross-brain corroboration repairs.",
+    "approvedCount": 10,
+    "reviewedCount": 10,
+    "deniedCount": 0
+  },
+  "certifiedFindings": [
+    {
+      "type": "CONTRADICTION",
+      "actor": "Marius Nortje",
+      "summary": "Admission versus denial of the export deal.",
+      "finding": {
+        "findingType": "PROPOSITION_CONFLICT",
+        "anchors": [
+          {
+            "page": 54
+          }
+        ]
+      },
+      "audit": {
+        "brainIds": [
+          "B1",
+          "B3",
+          "B5"
+        ]
+      },
+      "certification": {
+        "constitutionHash": "verum_constitution_v1",
+        "rulePackVersion": "vo-rules-2026.03.26",
+        "engineVersion": "vo-forensic-engine-2026.03.27",
+        "deterministicRunId": "greensky-oracle-20260327",
+        "evidenceBundleHash": "a832fff436cc0bf79b245d5ce266437ffe674ef48185086ccf4769b133bba2da47d2b4f6a7dcec8c54b8e8d84bccb8282775a5658f5a8bf384709663a144660ce",
+        "findingHash": "sha256:c1",
+        "promotionHash": "sha256:promo_c1",
+        "guardianApproval": true
+      }
+    },
+    {
+      "type": "CONTRADICTION",
+      "actor": "Kevin Lappeman",
+      "summary": "Termination timing conflicts with completed deal timeline.",
+      "finding": {
+        "findingType": "PROPOSITION_CONFLICT",
+        "anchors": [
+          {
+            "page": 124
+          },
+          {
+            "page": 215
+          }
+        ]
+      },
+      "audit": {
+        "brainIds": [
+          "B1",
+          "B5",
+          "B6"
+        ]
+      },
+      "certification": {
+        "constitutionHash": "verum_constitution_v1",
+        "rulePackVersion": "vo-rules-2026.03.26",
+        "engineVersion": "vo-forensic-engine-2026.03.27",
+        "deterministicRunId": "greensky-oracle-20260327",
+        "evidenceBundleHash": "a832fff436cc0bf79b245d5ce266437ffe674ef48185086ccf4769b133bba2da47d2b4f6a7dcec8c54b8e8d84bccb8282775a5658f5a8bf384709663a144660ce",
+        "findingHash": "sha256:c2",
+        "promotionHash": "sha256:promo_c2",
+        "guardianApproval": true
+      }
+    },
+    {
+      "type": "CONTRADICTION",
+      "actor": "Kevin Lappeman",
+      "summary": "Denial of exclusivity conflicts with the signed agreement.",
+      "finding": {
+        "findingType": "PROPOSITION_CONFLICT",
+        "anchors": [
+          {
+            "page": 17
+          },
+          {
+            "page": 212
+          }
+        ]
+      },
+      "audit": {
+        "brainIds": [
+          "B1",
+          "B2",
+          "B7"
+        ]
+      },
+      "certification": {
+        "constitutionHash": "verum_constitution_v1",
+        "rulePackVersion": "vo-rules-2026.03.26",
+        "engineVersion": "vo-forensic-engine-2026.03.27",
+        "deterministicRunId": "greensky-oracle-20260327",
+        "evidenceBundleHash": "a832fff436cc0bf79b245d5ce266437ffe674ef48185086ccf4769b133bba2da47d2b4f6a7dcec8c54b8e8d84bccb8282775a5658f5a8bf384709663a144660ce",
+        "findingHash": "sha256:c3",
+        "promotionHash": "sha256:promo_c3",
+        "guardianApproval": true
+      }
+    },
+    {
+      "type": "BREACH_OF_FIDUCIARY_DUTY",
+      "actor": "Marius Nortje",
+      "summary": "Failure to pay Greensky's contractual 30% share.",
+      "finding": {
+        "findingType": "OVERSIGHT_PATTERN",
+        "anchors": [
+          {
+            "page": 54
+          },
+          {
+            "page": 20
+          }
+        ]
+      },
+      "audit": {
+        "brainIds": [
+          "B6",
+          "B7"
+        ]
+      },
+      "certification": {
+        "constitutionHash": "verum_constitution_v1",
+        "rulePackVersion": "vo-rules-2026.03.26",
+        "engineVersion": "vo-forensic-engine-2026.03.27",
+        "deterministicRunId": "greensky-oracle-20260327",
+        "evidenceBundleHash": "a832fff436cc0bf79b245d5ce266437ffe674ef48185086ccf4769b133bba2da47d2b4f6a7dcec8c54b8e8d84bccb8282775a5658f5a8bf384709663a144660ce",
+        "findingHash": "sha256:bf1",
+        "promotionHash": "sha256:promo_bf1",
+        "guardianApproval": true
+      }
+    },
+    {
+      "type": "BREACH_OF_CONTRACT",
+      "actor": "Kevin Lappeman",
+      "summary": "Unilateral termination after the transaction was already complete.",
+      "finding": {
+        "findingType": "OVERSIGHT_PATTERN",
+        "anchors": [
+          {
+            "page": 124
+          },
+          {
+            "page": 215
+          }
+        ]
+      },
+      "audit": {
+        "brainIds": [
+          "B5",
+          "B6"
+        ]
+      },
+      "certification": {
+        "constitutionHash": "verum_constitution_v1",
+        "rulePackVersion": "vo-rules-2026.03.26",
+        "engineVersion": "vo-forensic-engine-2026.03.27",
+        "deterministicRunId": "greensky-oracle-20260327",
+        "evidenceBundleHash": "a832fff436cc0bf79b245d5ce266437ffe674ef48185086ccf4769b133bba2da47d2b4f6a7dcec8c54b8e8d84bccb8282775a5658f5a8bf384709663a144660ce",
+        "findingHash": "sha256:bc1",
+        "promotionHash": "sha256:promo_bc1",
+        "guardianApproval": true
+      }
+    },
+    {
+      "type": "FINANCIAL_IRREGULARITY",
+      "actor": "Kevin Lappeman",
+      "summary": "Unpaid 30% share of the USD 11,000 export order.",
+      "finding": {
+        "findingType": "UNPAID_PROFIT_SHARE",
+        "anchors": [
+          {
+            "page": 103
+          }
+        ]
+      },
+      "audit": {
+        "brainIds": [
+          "B6"
+        ]
+      },
+      "certification": {
+        "constitutionHash": "verum_constitution_v1",
+        "rulePackVersion": "vo-rules-2026.03.26",
+        "engineVersion": "vo-forensic-engine-2026.03.27",
+        "deterministicRunId": "greensky-oracle-20260327",
+        "evidenceBundleHash": "a832fff436cc0bf79b245d5ce266437ffe674ef48185086ccf4769b133bba2da47d2b4f6a7dcec8c54b8e8d84bccb8282775a5658f5a8bf384709663a144660ce",
+        "findingHash": "sha256:f1",
+        "promotionHash": "sha256:promo_f1",
+        "guardianApproval": true
+      }
+    },
+    {
+      "type": "FINANCIAL_IRREGULARITY",
+      "actor": "Marius Nortje",
+      "summary": "Unpaid February salary claimed by Liam Highcock.",
+      "finding": {
+        "findingType": "UNPAID_INVOICE",
+        "anchors": [
+          {
+            "page": 50
+          }
+        ]
+      },
+      "audit": {
+        "brainIds": [
+          "B6"
+        ]
+      },
+      "certification": {
+        "constitutionHash": "verum_constitution_v1",
+        "rulePackVersion": "vo-rules-2026.03.26",
+        "engineVersion": "vo-forensic-engine-2026.03.27",
+        "deterministicRunId": "greensky-oracle-20260327",
+        "evidenceBundleHash": "a832fff436cc0bf79b245d5ce266437ffe674ef48185086ccf4769b133bba2da47d2b4f6a7dcec8c54b8e8d84bccb8282775a5658f5a8bf384709663a144660ce",
+        "findingHash": "sha256:f2",
+        "promotionHash": "sha256:promo_f2",
+        "guardianApproval": true
+      }
+    },
+    {
+      "type": "SHAREHOLDER_OPPRESSION",
+      "actor": "Marius Nortje",
+      "summary": "Repeated refusal to allow private shareholder meetings.",
+      "finding": {
+        "findingType": "OVERSIGHT_PATTERN",
+        "anchors": [
+          {
+            "page": 59
+          },
+          {
+            "page": 269
+          }
+        ]
+      },
+      "audit": {
+        "brainIds": [
+          "B3",
+          "B4",
+          "B7"
+        ]
+      },
+      "certification": {
+        "constitutionHash": "verum_constitution_v1",
+        "rulePackVersion": "vo-rules-2026.03.26",
+        "engineVersion": "vo-forensic-engine-2026.03.27",
+        "deterministicRunId": "greensky-oracle-20260327",
+        "evidenceBundleHash": "a832fff436cc0bf79b245d5ce266437ffe674ef48185086ccf4769b133bba2da47d2b4f6a7dcec8c54b8e8d84bccb8282775a5658f5a8bf384709663a144660ce",
+        "findingHash": "sha256:so1",
+        "promotionHash": "sha256:promo_so1",
+        "guardianApproval": true
+      }
+    },
+    {
+      "type": "DOCUMENT_INTEGRITY",
+      "actor": "Kevin Lappeman",
+      "summary": "Fabricated WhatsApp screenshots showing impossible message continuity.",
+      "finding": {
+        "findingType": "EVIDENCE_TAMPERING",
+        "anchors": [
+          {
+            "page": 324
+          }
+        ]
+      },
+      "audit": {
+        "brainIds": [
+          "B2",
+          "B7"
+        ]
+      },
+      "certification": {
+        "constitutionHash": "verum_constitution_v1",
+        "rulePackVersion": "vo-rules-2026.03.26",
+        "engineVersion": "vo-forensic-engine-2026.03.27",
+        "deterministicRunId": "greensky-oracle-20260327",
+        "evidenceBundleHash": "a832fff436cc0bf79b245d5ce266437ffe674ef48185086ccf4769b133bba2da47d2b4f6a7dcec8c54b8e8d84bccb8282775a5658f5a8bf384709663a144660ce",
+        "findingHash": "sha256:di1",
+        "promotionHash": "sha256:promo_di1",
+        "guardianApproval": true
+      }
+    },
+    {
+      "type": "CYBERCRIME",
+      "actor": "Kevin Lappeman",
+      "summary": "Unauthorized Gmail archive request from the SCAQUACULTURE device.",
+      "finding": {
+        "findingType": "UNAUTHORIZED_ACCESS",
+        "anchors": [
+          {
+            "page": 38
+          }
+        ]
+      },
+      "audit": {
+        "brainIds": [
+          "B2",
+          "B7"
+        ]
+      },
+      "certification": {
+        "constitutionHash": "verum_constitution_v1",
+        "rulePackVersion": "vo-rules-2026.03.26",
+        "engineVersion": "vo-forensic-engine-2026.03.27",
+        "deterministicRunId": "greensky-oracle-20260327",
+        "evidenceBundleHash": "a832fff436cc0bf79b245d5ce266437ffe674ef48185086ccf4769b133bba2da47d2b4f6a7dcec8c54b8e8d84bccb8282775a5658f5a8bf384709663a144660ce",
+        "findingHash": "sha256:cy1",
+        "promotionHash": "sha256:promo_cy1",
+        "guardianApproval": true
+      }
+    }
+  ]
+}

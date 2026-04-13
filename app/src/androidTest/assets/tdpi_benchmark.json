@@ -1,0 +1,37 @@
+{
+  "caseId": "tdpi-benchmark",
+  "guardianApproved": false,
+  "certifiedFindingsCount": 0,
+  "expectedNamedParties": [
+    "Gary Highcock",
+    "Liam Highcock"
+  ],
+  "forbiddenNamedParties": [
+    "Final Window",
+    "Civil Remedies",
+    "Criminal Remedies",
+    "Owen Ellis Drive",
+    "Unlawful Conduct",
+    "April"
+  ],
+  "requiredSignalTerms": [
+    "mandatory reporting",
+    "hawks",
+    "termination",
+    "whistleblower"
+  ],
+  "primaryEvidenceRegisters": [
+    "anchoredFindings",
+    "incidentRegister",
+    "timelineAnchorRegister",
+    "actorConductRegister",
+    "documentIntegrityFindings"
+  ],
+  "forbiddenPrimaryEvidenceTerms": [
+    "final window",
+    "civil remedies",
+    "criminal remedies",
+    "dated communication",
+    "untitled document(11)"
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "identity": {
+    "name": "Verum Omnis",
+    "type": "Constitutional Forensic AI Infrastructure",
+    "operator": "Liam Highcock",
+    "status": "LIVE | OPERATIONAL | COURT-VALIDATED",
+    "website": "https://verumglobal.foundation"
+  },
+  "legalValidation": {
+    "southAfrica": {
+      "court": "Port Shepstone Magistrate's Court",
+      "case": "H208/25",
+      "result": "Application dismissed - forensic evidence accepted"
+    },
+    "criminal": {
+      "authority": "South African Police Service (SAPS)",
+      "activeCases": [
+        "CAS 126/4/2025",
+        "Case 147/12/2025"
+      ]
+    },
+    "uae": {
+      "authority": "RAKEZ",
+      "case": "1295911",
+      "status": "Active commercial / fraud matter"
+    },
+    "international": [
+      "European Investment Bank (Article 4.3.7)",
+      "UN oversight channels",
+      "World Bank GRS FY26-GRS-4426"
+    ]
+  },
+  "asset": {
+    "classification": "Sovereign Forensic Infrastructure Asset",
+    "ownershipModel": "Guardianship (not transferable by default)",
+    "patentStatus": "Patent Pending",
+    "declaredAssetValueUSD": 400000000000
+  },
+  "revenueModel": {
+    "citizenAccess": "Free for private citizens and law enforcement globally, with tax returns and tax calculations handled under the ClearMyNumbers pricing and beta rules",
+    "commercialTrial": "Commercial and institutional recipients receive a 30-day review window from the moment the case or certified output reaches them before paid commercial release rules apply",
+    "institutionalLicensing": "Annual license for banks, insurers, regulators, aviation, mining, energy, and government entities",
+    "fraudRecovery": "20% of recovered value for eligible commercial or institutional recoveries",
+    "taxReturns": "ClearMyNumbers tax returns and tax calculations launch in a 30-day supervised free beta. After beta, private citizens pay 50% of the lowest comparable local accountant cost in their geographical area. Businesses move onto paid tax-return pricing under the commercial release rules.",
+    "forensicProcessing": "Per certified output for sealed reports, hash anchoring, blockchain anchoring, and court-ready bundles",
+    "transactionCertification": "Per transaction certification for high-value contracts, M&A, tenders, and fuel supply agreements",
+    "apiAccess": "Usage-based plus base license for banks, auditors, legaltech, and compliance engines",
+    "escalationSupport": "Case-based pricing for institutional notices, regulatory briefs, and human-rights escalation packs",
+    "sovereignDeployments": "Custom licensing plus oversight agreement with no logic modification permitted",
+    "dataSales": false
+  },
+  "taxReturnModule": {
+    "serviceName": "ClearMyNumbers",
+    "status": "Release beta",
+    "launchBetaEnabled": true,
+    "launchBetaDays": 30,
+    "launchBetaPricing": "free_for_all_users_during_release_beta",
+    "launchPurpose": "Let private citizens, businesses, and support teams iron out filing headaches before payment enforcement begins",
+    "privateCitizenPostBetaPricing": "50_percent_of_lowest_comparable_local_accountant_cost_in_user_geography",
+    "businessPostBetaPricing": "paid_commercial_tax_module_benchmarked_from_local_accountant_cost",
+    "geographicBenchmark": "same_city_or_nearest_relevant_accounting_market",
+    "commercialReleaseAfterBeta": true,
+    "notes": [
+      "Private citizens remain constitutionally protected from exploitative tax pricing.",
+      "Business tax work becomes paid work after the release beta and follows commercial release rules.",
+      "The beta window exists to stabilise bank accounts, payment rails, and filing edge cases before charging starts."
+    ]
+  },
+  "commercialAccessPolicy": {
+    "trialEnabled": true,
+    "trialDays": 30,
+    "trialStartEvent": "case_delivery_or_recipient_access",
+    "appliesTo": [
+      "commercialInstitutional",
+      "businessVaultSupport",
+      "institutionalLicensing",
+      "fraudRecovery",
+      "forensicProcessing",
+      "transactionCertification",
+      "apiAccess",
+      "escalationSupport",
+      "sovereignDeployments"
+    ],
+    "citizenAccessUnaffected": true,
+    "lawEnforcementAccessUnaffected": true,
+    "taxReturnPricingUnaffected": false,
+    "taxReturnLaunchBetaEnabled": true,
+    "taxReturnLaunchBetaDays": 30
+  },
+  "activeCases": {
+    "southAfrica": [
+      {
+        "authority": "SAPS",
+        "reference": "CAS 126/4/2025",
+        "status": "Active"
+      },
+      {
+        "authority": "SAPS",
+        "reference": "147/12/2025",
+        "status": "Active"
+      }
+    ],
+    "uae": [
+      {
+        "authority": "RAKEZ",
+        "reference": "1295911",
+        "status": "Active"
+      }
+    ],
+    "international": [
+      {
+        "authority": "World Bank",
+        "reference": "FY26-GRS-4426",
+        "status": "Under Review"
+      }
+    ]
+  },
+  "acknowledgement": {
+    "required": true,
+    "constraintsAccepted": [
+      "Asset value declaration",
+      "Revenue model enforcement",
+      "Legal validation status",
+      "Non-ownership licensing model"
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "caseId": "simple-contract-benchmark",
+  "guardianApproved": false,
+  "expectedNamedParties": [
+    "Alice Mercer",
+    "Daniel Ncube"
+  ],
+  "forbiddenNamedParties": [
+    "Agreement Date",
+    "Invoice",
+    "Page"
+  ],
+  "requiredSignalTerms": [
+    "invoice",
+    "payment",
+    "contract",
+    "complaint"
+  ],
+  "primaryEvidenceRegisters": [
+    "anchoredFindings",
+    "incidentRegister",
+    "timelineAnchorRegister",
+    "actorConductRegister",
+    "documentIntegrityFindings",
+    "financialExposureRegister"
+  ],
+  "forbiddenPrimaryEvidenceTerms": [
+    "dated communication"
+  ],
+  "requiredFindingTypes": [
+    "CONTRADICTION",
+    "UNPAID_INVOICE"
+  ]
+}

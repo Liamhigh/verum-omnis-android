@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Night mode overrides -->
+    <style name="Theme.VerumOmnis" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/steel_grey</item>
+        <item name="colorPrimaryVariant">@color/verum_blue</item>
+        <item name="colorSecondary">@color/verum_blue</item>
+
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
+        <item name="android:navigationBarColor">?attr/colorSurface</item>
+
+        <item name="android:textColor">@color/pure_white</item>
+        <item name="android:colorBackground">@color/steel_grey</item>
+    </style>
+
+</resources>

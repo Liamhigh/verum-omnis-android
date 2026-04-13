@@ -1,0 +1,188 @@
+{
+  "version": 5,
+  "created_at": "2025-09-19T21:45:00Z",
+  "name": "Verum Gift Rules - Full Brain Coverage",
+  "rules": [
+    {
+      "id": "contradiction-basic-1",
+      "brain": "B1_Contradiction_Engine",
+      "description": "Flag contradictions across statements with identical actors/timestamps.",
+      "logic": {
+        "type": "all",
+        "conditions": [
+          { "field": "actor", "op": "eq", "ref": "actor" },
+          { "field": "timestamp", "op": "eq", "ref": "timestamp" },
+          { "field": "statement", "op": "contradicts", "ref": "statement" }
+        ]
+      },
+      "severity": "CRITICAL",
+      "action": "FLAG_AND_FREEZE",
+      "recovery": [
+        { "step": "cross_check_external", "target": "witness_pool" },
+        { "step": "escalate", "target": "human_review" }
+      ]
+    },
+    {
+      "id": "timestamp-drift-1",
+      "brain": "B4_Linguistics",
+      "description": "Detects inconsistent timestamps for the same actor within a small time window (impossible overlaps).",
+      "logic": {
+        "type": "all",
+        "conditions": [
+          { "field": "actor", "op": "eq", "ref": "actor" },
+          { "field": "timestamp", "op": "overlaps", "ref": "timestamp" }
+        ]
+      },
+      "severity": "HIGH",
+      "action": "FLAG",
+      "recovery": [
+        { "step": "align_timestamps", "window": "5m" },
+        { "step": "if_unresolved", "next": "WARN" }
+      ]
+    },
+    {
+      "id": "metadata-missing-1",
+      "brain": "B3_Comms_Channel_Integrity",
+      "description": "Flags documents or records missing critical metadata (actor, timestamp, or source).",
+      "logic": {
+        "type": "any",
+        "conditions": [
+          { "field": "actor", "op": "missing" },
+          { "field": "timestamp", "op": "missing" },
+          { "field": "source", "op": "missing" }
+        ]
+      },
+      "severity": "MEDIUM",
+      "action": "WARN",
+      "recovery": [
+        { "step": "request_metadata", "fields": ["actor", "timestamp", "source"] },
+        { "step": "defer_processing", "until": "metadata_provided" }
+      ]
+    },
+    {
+      "id": "multi-actor-conflict-1",
+      "brain": "B1_Contradiction_Engine+B4_Linguistics",
+      "description": "Flags contradictory statements across different actors about the same timestamp/event.",
+      "logic": {
+        "type": "all",
+        "conditions": [
+          { "field": "timestamp", "op": "eq", "ref": "timestamp" },
+          { "field": "statement", "op": "contradicts", "ref": "statement" },
+          { "field": "actor", "op": "neq", "ref": "actor" }
+        ]
+      },
+      "severity": "HIGH",
+      "action": "FLAG",
+      "recovery": [
+        { "step": "rank_sources", "criteria": ["credibility", "chain_strength"] },
+        { "step": "auto_select_strongest" },
+        { "step": "if_conflict_persists", "next": "escalate" }
+      ]
+    },
+    {
+      "id": "chain-integrity-1",
+      "brain": "B2_Doc_Image_Forensics",
+      "description": "Checks if hash values of documents match expected hash chain (tamper detection).",
+      "logic": {
+        "type": "all",
+        "conditions": [
+          { "field": "document_hash", "op": "neq", "ref": "expected_hash" }
+        ]
+      },
+      "severity": "CRITICAL",
+      "action": "FLAG_AND_FREEZE",
+      "recovery": [
+        { "step": "rehash_document" },
+        { "step": "verify_against_backup" },
+        { "step": "escalate", "target": "blockchain_anchor" }
+      ]
+    },
+    {
+      "id": "financial-anomaly-1",
+      "brain": "B6_Financial_Patterns",
+      "description": "Flags transactions that deviate from expected financial behavior (outliers in value, timing, or counterpart).",
+      "logic": {
+        "type": "any",
+        "conditions": [
+          { "field": "amount", "op": "outlier", "ref": "historical_mean" },
+          { "field": "counterparty", "op": "anomalous", "ref": "trusted_entities" }
+        ]
+      },
+      "severity": "HIGH",
+      "action": "FLAG",
+      "recovery": [
+        { "step": "cross_check_external", "target": "bank_records" },
+        { "step": "escalate", "target": "financial_audit" }
+      ]
+    },
+    {
+      "id": "legal-precedent-mismatch-1",
+      "brain": "B7_Legal",
+      "description": "Flags citations or claims that contradict established legal precedent.",
+      "logic": {
+        "type": "all",
+        "conditions": [
+          { "field": "citation", "op": "contradicts", "ref": "legal_precedent" }
+        ]
+      },
+      "severity": "HIGH",
+      "action": "FLAG_AND_ESCALATE",
+      "recovery": [
+        { "step": "cross_reference", "target": "case_law_database" },
+        { "step": "escalate", "target": "legal_review" }
+      ]
+    },
+    {
+      "id": "voice-auth-failure-1",
+      "brain": "B8_Voice_Audio_Forensics",
+      "description": "Detects mismatched or spoofed voiceprints in submitted audio evidence.",
+      "logic": {
+        "type": "all",
+        "conditions": [
+          { "field": "voiceprint", "op": "neq", "ref": "expected_voiceprint" }
+        ]
+      },
+      "severity": "CRITICAL",
+      "action": "FLAG_AND_FREEZE",
+      "recovery": [
+        { "step": "reverify_voice", "target": "alternate_sample" },
+        { "step": "escalate", "target": "biometric_authority" }
+      ]
+    },
+    {
+      "id": "handwriting-inconsistency-1",
+      "brain": "HandwritingEncoder+HandwritingDecoder",
+      "description": "Flags handwriting that is inconsistent across signed documents for the same actor.",
+      "logic": {
+        "type": "all",
+        "conditions": [
+          { "field": "signature", "op": "neq", "ref": "expected_signature" }
+        ]
+      },
+      "severity": "HIGH",
+      "action": "FLAG",
+      "recovery": [
+        { "step": "cross_check_external", "target": "notary_database" },
+        { "step": "escalate", "target": "handwriting_expert" }
+      ]
+    },
+    {
+      "id": "rnd-advisory-novelty-1",
+      "brain": "B9_RnD_Advisory",
+      "description": "Flags novel or unclassified anomalies that do not fit any existing category, for human advisory review.",
+      "logic": {
+        "type": "any",
+        "conditions": [
+          { "field": "anomaly_score", "op": "gt", "ref": "threshold" },
+          { "field": "category", "op": "unknown" }
+        ]
+      },
+      "severity": "MEDIUM",
+      "action": "ESCALATE",
+      "recovery": [
+        { "step": "log_event", "target": "anomaly_register" },
+        { "step": "escalate", "target": "human_review" }
+      ]
+    }
+  ]
+}

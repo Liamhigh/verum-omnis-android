@@ -1,0 +1,52 @@
+Case Snapshot
+This brief is the short human-readable version of the sealed case file. The sealed evidence, findings package, and audit ledger remain the controlling record.
+
+Case ID: case-32d3a9e6f5190fa551b2e712
+Jurisdiction: South Africa (ZA)
+Evidence SHA-512: 32d3a9e6f5190fa5...
+
+Guardian-approved certified findings: 3
+Verified contradictions: 0
+Candidate contradiction leads: 1
+
+What the Record Shows
+The sealed record centers on a contradiction about whether Kevin's Export proceeded while the agreement remained active.
+Other people or entities already tied into the same pattern are Kevin Lappeman and Greensky Solutions.
+How this pattern shows up in the record: certified findings and the contradiction ledger converge on the same order-completion dispute.
+
+People and Roles
+- Harmed party: this pass does not resolve that role cleanly enough to publish it.
+- Publication note: offence and role labels stay out of this section unless the sealed record anchors them separately.
+- Other affected parties: Kevin Lappeman and Greensky Solutions
+- Visual forensic finding: A high-severity signature overlay anomaly remains logged for manual verification on page 2.
+
+Certified Findings
+- Agreement contradiction: Marius confirms Kevin completed the order while the agreement remained active (pages 127, 128, 129)
+  Why this matters: It anchors the contradiction against later denial that any exclusivity agreement existed.
+- No exclusivity claim: Kevin denies that any exclusivity agreement existed (pages 132)
+  Why this matters: It conflicts with the anchored order-completion position and keeps the contradiction at candidate level until paired review matures.
+- Eviction pressure position: The record links the dispute to non-renewal, vacate, or eviction-pressure events (pages 27, 47)
+  Why this matters: It shows practical consequences tied to the same dispute.
+
+What Still Needs Proof or Review
+- Review the sealed audit report and findings package for unresolved items and supporting gaps.
+
+Pages to Read First
+- Start with 127, 128, 129, 132, 27, and 47.
+- p. 127 - Agreement contradiction: Marius confirms Kevin completed the order while the agreement remained active (pages 127, 128, 129)
+- p. 132 - No exclusivity claim: Kevin denies that any exclusivity agreement existed (pages 132)
+
+Recommended Next Steps
+- Read the sealed evidence pages listed above before external escalation.
+- Check the audit report for the full contradiction chain and any failure disclosures.
+- If a fact is not anchored in the sealed record, treat it as context until supporting evidence is added.
+
+Record Integrity
+This brief is a reading aid, not the controlling record. The audit report, findings package, visual memo, and original sealed evidence remain available in the vault for full review.
+Contradiction posture: Candidate contradiction lead remains candidate-level until a verified contradiction matures.
+
+Visual findings memo excerpt:
+Visual memo excerpt placeholder.
+
+Audit excerpt:
+Audit excerpt placeholder.

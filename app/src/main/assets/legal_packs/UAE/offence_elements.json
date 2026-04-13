@@ -1,0 +1,51 @@
+{
+  "metadata": {
+    "jurisdiction": "UAE",
+    "document_type": "offence_elements",
+    "last_updated": "2026-03-26",
+    "authoritative_source": [
+      "https://uaelegislation.gov.ae/en/legislations/1373/download",
+      "https://uaelegislation.gov.ae/en/legislations/1526/download"
+    ]
+  },
+  "items": [
+    {
+      "id": "uae-shareholder-exclusion-elements",
+      "title": "UAE company-governance prejudice framework",
+      "text": "Check for a recognized company right, anchored conduct interfering with that right, and a governance or management decision that caused practical prejudice. Keep the remedy analysis in the company-law lane unless the record independently supports a criminal route.",
+      "source": "Federal Decree-Law No. (32) of 2021 Regarding Commercial Companies",
+      "rank": 96,
+      "tags": [
+        "shareholder",
+        "prejudice",
+        "management",
+        "company rights"
+      ]
+    },
+    {
+      "id": "uae-password-misuse-elements",
+      "title": "UAE credential misuse framework",
+      "text": "Check whether the credential or code is identified, whether acquisition or possession was unauthorized, and whether the conduct was linked to actual access or a further offence objective.",
+      "source": "Federal Decree-Law No. (34) of 2021 On Countering Rumors and Cybercrimes",
+      "rank": 95,
+      "tags": [
+        "password",
+        "code",
+        "unauthorized access"
+      ]
+    },
+    {
+      "id": "uae-confidential-commercial-data-elements",
+      "title": "UAE confidential commercial-data interference framework",
+      "text": "Check whether the data are confidential commercial or economic data, whether the conduct involved acquisition, copying, disclosure, alteration, or dissemination, and whether the act was done without permission using information technology.",
+      "source": "Federal Decree-Law No. (34) of 2021 On Countering Rumors and Cybercrimes",
+      "rank": 94,
+      "tags": [
+        "confidential",
+        "commercial data",
+        "disclosure",
+        "IT"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "version": "1.0.0",
+  "jurisdictions": {
+    "ALIASES": {
+      "SOUTH_AFRICA": "ZAF",
+      "SA": "ZAF",
+      "MULTI_JURISDICTION": "MULTI",
+      "MULTI": "MULTI"
+    },
+    "UAE": {
+      "code": "UAE",
+      "name": "United Arab Emirates",
+      "statutes": "UAE/statutes.json",
+      "offence_elements": "UAE/offence_elements.json",
+      "procedural_rules": "UAE/procedural_rules.json",
+      "institutions": "UAE/institutions.json",
+      "precedent_summaries": "UAE/precedent_summaries.json"
+    },
+    "ZAF": {
+      "code": "ZAF",
+      "name": "South Africa",
+      "statutes": "ZAF/statutes.json",
+      "offence_elements": "ZAF/offence_elements.json",
+      "procedural_rules": "ZAF/procedural_rules.json",
+      "institutions": "ZAF/institutions.json",
+      "precedent_summaries": "ZAF/precedent_summaries.json"
+    },
+    "MULTI": {
+      "code": "MULTI",
+      "name": "Multi-jurisdiction (UAE and South Africa)",
+      "composite": [
+        "UAE",
+        "ZAF"
+      ]
+    }
+  }
+}

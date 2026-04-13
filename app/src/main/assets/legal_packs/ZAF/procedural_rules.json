@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "jurisdiction": "ZAF",
+    "document_type": "procedural_rules",
+    "last_updated": "2026-03-26",
+    "authoritative_source": [
+      "https://www.justice.gov.za/legislation/rules/rules.htm",
+      "https://www.justice.gov.za/juscol/docs/2016-Guide-MOH.pdf",
+      "https://www.saps.gov.za/index.php"
+    ]
+  },
+  "items": [
+    {
+      "id": "zaf-high-court-rules",
+      "title": "Uniform Rules of Court / High Court filing discipline",
+      "text": "A South African court-facing brief should identify the parties, relief sought, forum, and annexed evidence clearly, and should separate proven findings from issues still requiring discovery or affidavit confirmation.",
+      "source": "Justice.gov.za rules and High Court guide",
+      "rank": 93,
+      "tags": ["high court", "uniform rules", "annexures"]
+    },
+    {
+      "id": "zaf-criminal-vs-civil-separation",
+      "title": "Separate company-law relief from criminal referral",
+      "text": "Where the same record supports both corporate-governance prejudice and a possible cybercrime or corruption complaint, the legal layer should keep the company remedy path separate from SAPS or Hawks referral steps.",
+      "source": "Verum Omnis South Africa grounding rule aligned to Companies Act and criminal statutes",
+      "rank": 92,
+      "tags": ["civil", "criminal", "separation"]
+    },
+    {
+      "id": "zaf-evidence-preservation",
+      "title": "Preserve logs, company records, and dated communications",
+      "text": "South African escalation should preserve logs, account identifiers, company records, dated communications, and the sealed contradiction register before filing so the record stays anchored and reproducible.",
+      "source": "Verum Omnis South Africa grounding rule",
+      "rank": 90,
+      "tags": ["preservation", "logs", "records"]
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "metadata": {
+    "jurisdiction": "ZAF",
+    "document_type": "institutions",
+    "last_updated": "2026-03-26",
+    "authoritative_source": [
+      "https://www.saps.gov.za/index.php",
+      "https://www.saps.gov.za/contact_us.php",
+      "https://lpc.org.za/about-us/contact-us/"
+    ]
+  },
+  "items": [
+    {
+      "id": "zaf-saps",
+      "title": "South African Police Service (SAPS)",
+      "text": "Use for ordinary criminal complaint intake and docket creation. A SAPS-facing brief should identify the complainant, dates, systems or accounts involved, the strongest certified finding, and the key anchor list.",
+      "source": "SAPS public reporting and contact channels",
+      "rank": 88,
+      "tags": ["SAPS", "complaint", "criminal"]
+    },
+    {
+      "id": "zaf-hawks",
+      "title": "Directorate for Priority Crime Investigation (Hawks)",
+      "text": "Use when the matter points to serious commercial crime, corruption, or cybercrime features that justify DPCI referral rather than an ordinary police intake alone.",
+      "source": "SAPS / DPCI public reporting channels",
+      "rank": 89,
+      "tags": ["Hawks", "DPCI", "commercial crime"]
+    },
+    {
+      "id": "zaf-lpc",
+      "title": "Legal Practice Council (LPC)",
+      "text": "Use when the matter concerns complaint routing about legal practitioners or when referral to professional-regulation channels is more appropriate than a police or court-first step.",
+      "source": "Legal Practice Council official contact channels",
+      "rank": 83,
+      "tags": ["LPC", "legal practitioner", "complaint"]
+    },
+    {
+      "id": "zaf-cipc",
+      "title": "Companies and Intellectual Property Commission (CIPC)",
+      "text": "Use for company-registration and records context, especially where governance disputes depend on confirming company details, filings, or official records alongside court or counsel strategy.",
+      "source": "CIPC official services channels",
+      "rank": 82,
+      "tags": ["CIPC", "company records", "registration"]
+    }
+  ]
+}

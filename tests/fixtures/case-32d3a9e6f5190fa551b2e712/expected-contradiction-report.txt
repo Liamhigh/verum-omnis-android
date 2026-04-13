@@ -1,0 +1,61 @@
+VERUM OMNIS CONTRADICTION ENGINE REPORT
+Constitutional Version: v5.2.7
+Report Type: Direct contradiction-engine output
+Input Artifact: greenskycomplete_compressed_compressed1.zip
+Report Date (UTC): 2026-04-07
+Engine Mode: Offline-first | Contradiction-first | Deterministic extraction
+---
+ENGINE SUMMARY
+Verified contradictions: 0
+Candidate contradictions: 1
+Processing status: DETERMINATE WITH MATERIAL COVERAGE GAPS
+Ordinal confidence: MODERATE
+Executive summary: The anchored contradiction ledger centers on whether Kevin's Export proceeded while an active agreement existed, but the record still discloses material coverage gaps.
+Contradiction posture: Candidate contradiction lead remains candidate-level until a verified contradiction matures.
+Note: this artifact publishes the contradiction engine directly. It does not assign harmed-party labels unless those labels are separately anchored elsewhere in the sealed record.
+---
+1. WHAT THE RECORD CURRENTLY SHOWS
+The direct contradiction engine ties the present dispute to anchored claims about order completion, agreement status, and later denial.
+WHO APPEARS LINKED TO THE KEY EVENTS
+Kevin Lappeman and Marius Nortje appear in the anchored contradiction set.
+WHEN THE KEY EVENTS APPEAR TO HAVE HAPPENED
+6 April 2025 appears in the anchored timeline.
+WHY THIS MATTERS
+The contradiction remains publishable, but it is not yet mature enough to justify expanded role narration.
+---
+2. EVIDENCE MANIFEST
+- Sealed evidence hash prefix: 32d3a9e6f5190fa5...
+- Read-first pages: 127, 128, 129, 132, 27, 47
+---
+3. CHAIN-OF-CUSTODY LOG
+- Sealed bundle archived with deterministic case ID case-32d3a9e6f5190fa551b2e712.
+---
+4. CONTRADICTION LEDGER
+- Candidate contradiction: "Kevin's Export proceeded with the deal" versus "No exclusivity agreement existed" (pages 127, 132).
+---
+5. ANCHORED TIMELINE
+- 6 April 2025: Marius Nortje email quoted in the contradiction set (page 86).
+---
+6. NINE-BRAIN OUTPUTS (Anchored, Ordinal Confidence Only)
+- B1 contradiction pressure recorded.
+- B7 legal mapping withheld from this artifact.
+---
+7. TRIPLE VERIFICATION
+- Overall status remains determinate with material coverage gaps.
+- Verified contradictions: 0.
+- Candidate contradictions: 1.
+---
+8. WHAT WOULD RESOLVE THE OPEN CONTRADICTIONS
+- A fully paired proposition set with direct agreement text would resolve the remaining candidate contradiction.
+---
+9. DISCLOSED GAPS AND CONCEALMENT HANDLING
+- Material coverage gaps remain disclosed in the sealed record.
+- Concealment handling remains active where the contradiction has not matured.
+---
+10. SEAL BLOCK
+- Case ID: case-32d3a9e6f5190fa551b2e712
+- SHA-512: 32d3a9e6f5190fa5...
+---
+11. DISCLOSURE OF LIMITATIONS
+This artifact is the contradiction engine speaking in its own voice. It is not a substitute for the sealed evidence pages, and it should not be expanded into harmed-party or liability conclusions unless those are separately anchored.
+Visual signature, forgery, and document-image findings remain a separate specialist memo and must be read alongside this report where those issues matter.

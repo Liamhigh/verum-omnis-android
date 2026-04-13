@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "jurisdiction": "UAE",
+    "document_type": "procedural_rules",
+    "last_updated": "2026-03-26",
+    "authoritative_source": [
+      "https://uaelegislation.gov.ae/en/legislations/1526/download",
+      "https://www.moec.gov.ae/en/contact-us",
+      "https://rakez.com/en/contact-us"
+    ]
+  },
+  "items": [
+    {
+      "id": "uae-company-complaint-separation",
+      "title": "Separate company-law relief from criminal escalation",
+      "text": "Where the sealed record mixes governance prejudice with digital-access allegations, prepare two tracks: company-law relief for governance prejudice and a separate cybercrime or prosecution brief only for anchored digital conduct.",
+      "source": "UAE legal-layer operating rule grounded in primary UAE company and cyber laws",
+      "rank": 93,
+      "tags": [
+        "company law",
+        "criminal",
+        "separation"
+      ]
+    },
+    {
+      "id": "uae-electronic-evidence-briefing",
+      "title": "Use a sealed electronic-evidence brief",
+      "text": "A UAE-facing complaint brief should identify the system, actor, dates, and anchor points, while preserving logs, credentials history, and company records for the competent authority or counsel.",
+      "source": "Federal Decree-Law No. (34) of 2021 On Countering Rumors and Cybercrimes",
+      "rank": 92,
+      "tags": [
+        "brief",
+        "electronic evidence",
+        "preservation"
+      ]
+    },
+    {
+      "id": "uae-rakez-company-channel",
+      "title": "RAKEZ-related company disputes require entity and file identification",
+      "text": "When a matter touches a RAKEZ-linked company, the brief should identify the entity, file or license context, the rights affected, and the exact relief or referral requested from the competent office.",
+      "source": "RAKEZ public service and contact channels",
+      "rank": 90,
+      "tags": [
+        "RAKEZ",
+        "company file",
+        "relief"
+      ]
+    }
+  ]
+}

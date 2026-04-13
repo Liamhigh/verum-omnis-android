@@ -1,0 +1,2 @@
+-keep class com.verum.omnis.verum.rules.** { *; }
+-keepclassmembers class ** { public static final int raw; }

@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "jurisdiction": "ZAF",
+    "document_type": "offence_elements",
+    "last_updated": "2026-03-26",
+    "authoritative_source": [
+      "https://www.justice.gov.za/legislation/acts/2008-071.pdf",
+      "https://www.justice.gov.za/legislation/acts/2020-019-Cybercrimes.pdf",
+      "https://www.justice.gov.za/legislation/acts/2004-012.pdf"
+    ]
+  },
+  "items": [
+    {
+      "id": "zaf-oppression-elements",
+      "title": "South African oppressive or prejudicial conduct framework",
+      "text": "Check for conduct affecting a recognized member, shareholder, or director interest; grounded prejudice or unfairness; and a court-facing remedy that fits the Companies Act rather than a generalized grievance narrative.",
+      "source": "Companies Act 71 of 2008, section 163 context",
+      "rank": 97,
+      "tags": ["oppression", "prejudicial conduct", "companies act"]
+    },
+    {
+      "id": "zaf-password-use-elements",
+      "title": "South African password or access-code misuse framework",
+      "text": "Check whether the password, access code, or similar data are identified, whether possession or use was unlawful and intentional, and whether the conduct was linked to unlawful access, interference, fraud, or forgery under the Cybercrimes Act.",
+      "source": "Cybercrimes Act 19 of 2020, section 7 context",
+      "rank": 95,
+      "tags": ["password", "access code", "cybercrime"]
+    },
+    {
+      "id": "zaf-corruption-elements",
+      "title": "South African corruption framing",
+      "text": "Check for a gratification or inducement, a decision or omission procured through that inducement, and a legal-duty or trust breach that grounds the corruption theory instead of leaving it as vague suspicion.",
+      "source": "PRECCA section 3 context",
+      "rank": 91,
+      "tags": ["corruption", "gratification", "breach of trust"]
+    }
+  ]
+}

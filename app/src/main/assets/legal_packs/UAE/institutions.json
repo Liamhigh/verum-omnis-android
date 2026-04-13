@@ -1,0 +1,51 @@
+{
+  "metadata": {
+    "jurisdiction": "UAE",
+    "document_type": "institutions",
+    "last_updated": "2026-03-26",
+    "authoritative_source": [
+      "https://rakez.com/en/contact-us",
+      "https://www.moec.gov.ae/en/contact-us",
+      "https://uaelegislation.gov.ae/en/legislations/1526/download"
+    ]
+  },
+  "items": [
+    {
+      "id": "uae-rakez",
+      "title": "RAKEZ",
+      "text": "Use for company-formation, free-zone, licensing, and related entity-routing issues. A complaint brief should identify the company, license or file context, the rights affected, and the exact intervention sought.",
+      "source": "RAKEZ official contact channels",
+      "rank": 88,
+      "tags": [
+        "RAKEZ",
+        "free zone",
+        "company",
+        "licensing"
+      ]
+    },
+    {
+      "id": "uae-ministry-economy",
+      "title": "UAE Ministry of Economy",
+      "text": "Use for economy-facing company or commercial complaints where the complaint pathway or authority needs confirmation. Include company identifiers, chronology, and the statutory hook relied on.",
+      "source": "Ministry of Economy official contact channels",
+      "rank": 86,
+      "tags": [
+        "ministry of economy",
+        "commercial complaint",
+        "company"
+      ]
+    },
+    {
+      "id": "uae-public-prosecution",
+      "title": "UAE prosecution or competent cybercrime authority",
+      "text": "Use only when the sealed record grounds an actual cybercrime or criminal complaint path. The referral should preserve the distinction between verified conduct and still-missing logs or attribution gaps.",
+      "source": "Federal Decree-Law No. (34) of 2021 On Countering Rumors and Cybercrimes",
+      "rank": 87,
+      "tags": [
+        "prosecution",
+        "cybercrime",
+        "criminal referral"
+      ]
+    }
+  ]
+}

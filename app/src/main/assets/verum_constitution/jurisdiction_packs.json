@@ -1,0 +1,28 @@
+{
+  "packs": [
+    {
+      "code": "UAE",
+      "version": "1.0",
+      "path": "jurisdictions/UAE.json",
+      "sha512": "<PIN_ME>"
+    },
+    {
+      "code": "SA",
+      "version": "1.0",
+      "path": "jurisdictions/SA.json",
+      "sha512": "<PIN_ME>"
+    },
+    {
+      "code": "EU",
+      "version": "1.0",
+      "path": "jurisdictions/EU.json",
+      "sha512": "<PIN_ME>"
+    },
+    {
+      "code": "US",
+      "version": "1.0",
+      "path": "jurisdictions/US.json",
+      "sha512": "<PIN_ME>"
+    }
+  ]
+}

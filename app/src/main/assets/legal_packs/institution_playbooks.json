@@ -1,0 +1,82 @@
+{
+  "version": "1.0.0",
+  "playbooks": [
+    {
+      "id": "rakez-complaint-brief",
+      "title": "RAKEZ company complaint brief",
+      "institution": "RAKEZ",
+      "filing_steps": [
+        "Identify the company, file number, and free-zone connection",
+        "Attach the sealed findings summary and anchor list",
+        "Separate company-governance relief from any criminal allegation",
+        "Request the competent internal or external referral path in writing"
+      ],
+      "required_documents": [
+        "Company identification details",
+        "Shareholding or authority documents",
+        "Chronology of anchored findings",
+        "Any existing RAKEZ correspondence"
+      ],
+      "typical_timeline": "Administrative acknowledgement varies; legal escalation timing should be confirmed with the competent authority.",
+      "source": "RAKEZ official contact and company-services channels",
+      "rank": 85,
+      "tags": [
+        "UAE",
+        "RAKEZ",
+        "company",
+        "complaint"
+      ]
+    },
+    {
+      "id": "saps-hawks-referral",
+      "title": "SAPS or Hawks criminal referral brief",
+      "institution": "SAPS / Hawks",
+      "filing_steps": [
+        "Lead with the strongest certified finding and the forum for the offence",
+        "Attach the contradiction register and anchor references",
+        "State what logs, accounts, or records still require preservation",
+        "Keep civil company remedies separate from criminal referral points"
+      ],
+      "required_documents": [
+        "Sealed findings package",
+        "Identity and contact details of complainant",
+        "Known dates, accounts, devices, or company identifiers",
+        "Any prior docket or reference numbers"
+      ],
+      "typical_timeline": "Initial reporting is immediate; investigative timing depends on intake triage and the competent unit.",
+      "source": "SAPS and DPCI public reporting channels",
+      "rank": 86,
+      "tags": [
+        "ZAF",
+        "SAPS",
+        "Hawks",
+        "criminal"
+      ]
+    },
+    {
+      "id": "lawyer-handoff",
+      "title": "Lawyer handoff brief",
+      "institution": "External counsel",
+      "filing_steps": [
+        "Present top issues first",
+        "Attach certified findings with anchors",
+        "Separate verified contradictions from unresolved gaps",
+        "Ask the forum-specific next question counsel must answer"
+      ],
+      "required_documents": [
+        "Sealed findings package",
+        "Jurisdiction pack excerpts used",
+        "List of missing records",
+        "Desired forum or institution"
+      ],
+      "typical_timeline": "Same-day preparation is possible if the record is already sealed and organized.",
+      "source": "Verum Omnis legal-layer operating model",
+      "rank": 82,
+      "tags": [
+        "handoff",
+        "counsel",
+        "multi-jurisdiction"
+      ]
+    }
+  ]
+}

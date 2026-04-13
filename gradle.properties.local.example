@@ -1,0 +1,3 @@
+KEYSTORE_PASSWORD=your-keystore-password
+KEY_ALIAS=your-key-alias
+KEY_PASSWORD=your-key-password

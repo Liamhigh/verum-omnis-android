@@ -1,0 +1,116 @@
+{
+  "version": "9-brain-logic-v1",
+  "quorum_min": 3,
+  "tie_breaker": "B1_REQUEST_MORE_EVIDENCE",
+  "brains": [
+    {
+      "id": "B1",
+      "name": "Contradiction Engine",
+      "role": "Lead Arbiter",
+      "voting": true,
+      "functions": [
+        "direct_contradiction",
+        "implied_contradiction",
+        "contextual_contradiction",
+        "micro_drift",
+        "over_specific_denial",
+        "semantic_drift",
+        "selective_omission"
+      ]
+    },
+    {
+      "id": "B2",
+      "name": "Document & Image Forensics",
+      "voting": true,
+      "functions": [
+        "metadata_diff",
+        "recompression_artifacts",
+        "signature_anomaly",
+        "steganography_hint",
+        "deepfake_heuristics"
+      ]
+    },
+    {
+      "id": "B3",
+      "name": "Comms & Channel Integrity",
+      "voting": true,
+      "functions": [
+        "thread_continuity",
+        "header_route_plausibility",
+        "device_id_match",
+        "crop_trim_detection",
+        "transcript_cleanroom"
+      ]
+    },
+    {
+      "id": "B4",
+      "name": "Behavioral Linguistics",
+      "voting": true,
+      "functions": [
+        "hedging_density",
+        "evasion_patterns",
+        "aggression_deflection_spike",
+        "pressure_response_shift",
+        "truth_scarcity_ratio"
+      ]
+    },
+    {
+      "id": "B5",
+      "name": "Timeline & Geolocation",
+      "voting": true,
+      "functions": [
+        "clock_alignment",
+        "geotag_alignment",
+        "impossible_overlap",
+        "why_now_latency",
+        "travel_time_plausibility"
+      ]
+    },
+    {
+      "id": "B6",
+      "name": "Financial Patterns",
+      "voting": true,
+      "functions": [
+        "amount_drift",
+        "invoice_po_plausibility",
+        "beneficiary_link",
+        "shell_hop",
+        "off_by_design_numbers"
+      ]
+    },
+    {
+      "id": "B7",
+      "name": "Legal & Procedural Compliance",
+      "voting": true,
+      "functions": [
+        "jurisdiction_pack_match",
+        "chain_of_custody_format",
+        "statutory_trigger_detection",
+        "admissibility_format"
+      ]
+    },
+    {
+      "id": "B8",
+      "name": "Voice/Audio Forensics",
+      "voting": true,
+      "functions": [
+        "speaker_continuity",
+        "compression_ladder",
+        "tamper_region",
+        "mic_room_mismatch",
+        "transcript_alignment"
+      ]
+    },
+    {
+      "id": "B9",
+      "name": "Research & Development",
+      "voting": false,
+      "functions": [
+        "hypothesis_generation",
+        "checklist_generation",
+        "test_vector_generation"
+      ],
+      "notes": "non_voting, advisory only"
+    }
+  ]
+}

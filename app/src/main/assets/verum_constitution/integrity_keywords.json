@@ -1,0 +1,46 @@
+{
+  "version": "constitutional-integrity-keywords-v1",
+  "integrityFindings": {
+    "MISSING_COUNTERSIGNATURE": [
+      "no countersigned",
+      "never countersigned",
+      "not countersigned",
+      "countersigned copy",
+      "neither operator has ever received a countersigned copy"
+    ],
+    "MISSING_EXECUTION_EVIDENCE": [
+      "unsigned mou",
+      "unsigned contract",
+      "no valid contract",
+      "no valid renewal",
+      "never signed back",
+      "not legally valid"
+    ],
+    "BACKDATING_RISK": [
+      "back-dated",
+      "backdated",
+      "produce signed copies now",
+      "later-produced signed copies",
+      "metadata will expose"
+    ],
+    "METADATA_ANOMALY": [
+      "metadata anomaly",
+      "metadata shows",
+      "created the day before submission",
+      "timestamp",
+      "hash mismatch",
+      "mathematical fingerprint"
+    ],
+    "SIGNATURE_MISMATCH": [
+      "signature mismatch",
+      "signature differs",
+      "signature marks"
+    ],
+    "CHAIN_OF_CUSTODY_GAP": [
+      "continuity concern",
+      "material continuity concerns",
+      "chain of custody gap",
+      "continuity is degraded"
+    ]
+  }
+}

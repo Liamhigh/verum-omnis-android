@@ -1,0 +1,36 @@
+{
+  "artifacts": [
+    {
+      "name": "models/b1_contradiction.onnx",
+      "sha512": "<PIN_ME>"
+    },
+    {
+      "name": "models/b2_doc_image.onnx",
+      "sha512": "<PIN_ME>"
+    },
+    {
+      "name": "models/b3_comms.onnx",
+      "sha512": "<PIN_ME>"
+    },
+    {
+      "name": "models/b4_linguistics.onnx",
+      "sha512": "<PIN_ME>"
+    },
+    {
+      "name": "models/b5_timeline_geo.onnx",
+      "sha512": "<PIN_ME>"
+    },
+    {
+      "name": "models/b6_finance.onnx",
+      "sha512": "<PIN_ME>"
+    },
+    {
+      "name": "models/b7_legal.onnx",
+      "sha512": "<PIN_ME>"
+    },
+    {
+      "name": "models/b8_voice.onnx",
+      "sha512": "<PIN_ME>"
+    }
+  ]
+}

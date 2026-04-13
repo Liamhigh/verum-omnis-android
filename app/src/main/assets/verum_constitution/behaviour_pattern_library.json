@@ -1,0 +1,104 @@
+{
+  "schemaName": "verum_omnis_behaviour_pattern_library",
+  "schemaVersion": "1.0.0",
+  "purpose": "Reusable behavioural and structural pattern knowledge for downstream forensic reporting.",
+  "usageRule": "These patterns are evidence-linked forensic models, not psychological diagnoses.",
+  "patterns": [
+    {
+      "pattern_id": "P001",
+      "pattern_name": "role_authority_mismatch",
+      "category": "structural_manipulation",
+      "description": "A person is held responsible for performance while a critical lever of authority remains under someone else's control.",
+      "signals": ["responsibility assigned", "authority withheld", "later blame", "support refused"],
+      "report_language": "The evidence indicates a mismatch between assigned responsibility and actual operational authority."
+    },
+    {
+      "pattern_id": "P002",
+      "pattern_name": "controlled_failure_setup",
+      "category": "structural_manipulation",
+      "description": "A workflow leaves one actor exposed to blame while another actor retains hidden control, visibility, or veto power.",
+      "signals": ["withheld support", "hidden participation", "performance blame", "selective intervention"],
+      "report_language": "The record supports a controlled-failure pattern in which the blamed actor lacked a fair ability to succeed."
+    },
+    {
+      "pattern_id": "P003",
+      "pattern_name": "covert_monitoring",
+      "category": "deception_and_surveillance",
+      "description": "An actor appears to maintain hidden visibility into communications without being openly included.",
+      "signals": ["blind copy indicators", "hidden thread visibility", "covertly obtained messages"],
+      "report_language": "The evidence suggests covert monitoring or concealed communication visibility."
+    },
+    {
+      "pattern_id": "P004",
+      "pattern_name": "selective_context_weaponization",
+      "category": "deception_and_surveillance",
+      "description": "Fragments of communication are selectively presented in a way that distorts the meaning of the fuller record.",
+      "signals": ["cropped screenshots", "missing thread context", "accusation built on omissions"],
+      "report_language": "The accusation appears to rely on selectively framed evidence rather than the complete communication record."
+    },
+    {
+      "pattern_id": "P005",
+      "pattern_name": "gaslighting_like_blame_shift",
+      "category": "behavioural_interaction",
+      "description": "Known circumstances affecting performance are ignored, and those suppressed facts are later used to intensify blame.",
+      "signals": ["known outage or barrier", "later negligence accusation", "distorted version of events"],
+      "report_language": "The interaction pattern is consistent with gaslighting-like blame shifting supported by suppression of known context."
+    },
+    {
+      "pattern_id": "P006",
+      "pattern_name": "no_countersignature_trap",
+      "category": "documentary_coercion",
+      "description": "One party signs or performs under a document while the counterparty withholds countersignature, then later weaponizes the unsigned status.",
+      "signals": ["operator signed", "counterparty never signed back", "unsigned status later exploited"],
+      "report_language": "The record supports a no-countersignature trap in which documentary incompleteness appears to have been manufactured and later exploited."
+    },
+    {
+      "pattern_id": "P007",
+      "pattern_name": "document_limbo_coercion",
+      "category": "documentary_coercion",
+      "description": "A target is kept operating for extended periods in unresolved legal limbo under defective paperwork.",
+      "signals": ["years without countersigned instruments", "continued obligations", "later enforcement threat"],
+      "report_language": "The evidence points to prolonged legal limbo used as a coercive control mechanism."
+    },
+    {
+      "pattern_id": "P008",
+      "pattern_name": "accept_then_abandon_mandate",
+      "category": "professional_misconduct_pattern",
+      "description": "A professional acknowledges a mandate or record, then falls silent, withdraws action, or obstructs follow-through.",
+      "signals": ["acknowledgment followed by silence", "meeting not attended", "representation gap"],
+      "report_language": "The file reflects an accept-then-abandon mandate pattern that may support professional misconduct or obstruction analysis."
+    },
+    {
+      "pattern_id": "P009",
+      "pattern_name": "threat_after_notice",
+      "category": "professional_misconduct_pattern",
+      "description": "After being put on notice with evidence, the response shifts toward threats, delay, or intimidation rather than engagement.",
+      "signals": ["formal notice served", "no substantive rebuttal", "threats or obstruction"],
+      "report_language": "The response pattern suggests escalation into threat or obstruction after evidentiary notice rather than good-faith engagement."
+    },
+    {
+      "pattern_id": "P010",
+      "pattern_name": "truth_continuity_break",
+      "category": "core_forensic_logic",
+      "description": "A narrative cannot be connected cleanly across dates, acts, and evidence anchors, or it changes materially under comparison.",
+      "signals": ["material contradiction", "retroactive justification", "broken event chain"],
+      "report_language": "The account shows continuity failure under evidence comparison and should not be treated as stable without further corroboration."
+    },
+    {
+      "pattern_id": "P011",
+      "pattern_name": "vulnerability_exploitation",
+      "category": "coercive_targeting",
+      "description": "A known vulnerability, crisis, or mental-health pressure point appears to have been used to intensify leverage, discredit the target, or obtain advantage.",
+      "signals": ["known vulnerability", "pressure during crisis", "credibility attack", "targeted leverage"],
+      "report_language": "The evidence suggests exploitation of a known vulnerability or crisis state as a leverage mechanism."
+    },
+    {
+      "pattern_id": "P012",
+      "pattern_name": "coercive_isolation_meeting",
+      "category": "coercive_targeting",
+      "description": "Actors arrive or intervene in a way that isolates one person from witnesses or support before a sensitive discussion, demand, or pressure event.",
+      "signals": ["unannounced arrival", "room cleared", "private pressure meeting", "witness removal"],
+      "report_language": "The circumstances are consistent with a coercive isolation meeting in which witnesses or support were removed before a sensitive discussion."
+    }
+  ]
+}

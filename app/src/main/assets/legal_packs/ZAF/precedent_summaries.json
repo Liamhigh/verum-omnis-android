@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "jurisdiction": "ZAF",
+    "document_type": "precedent_summaries",
+    "last_updated": "2026-03-26",
+    "authoritative_source": [
+      "https://www.justice.gov.za/legislation/acts/2008-071.pdf",
+      "https://www.justice.gov.za/legislation/acts/2020-019-Cybercrimes.pdf"
+    ]
+  },
+  "items": [
+    {
+      "id": "zaf-precedent-company-relief",
+      "title": "South African company disputes: statutory remedy framing comes first",
+      "text": "Gemma should frame a South African company dispute around the right affected, the prejudicial conduct, and the remedy path under the Companies Act before leaning on broader narrative accusations.",
+      "source": "Verum Omnis South Africa grounding principle derived from the Companies Act",
+      "rank": 72,
+      "tags": ["companies act", "remedy", "framing"]
+    },
+    {
+      "id": "zaf-precedent-cyber-attribution",
+      "title": "South African cyber complaints: preserve the attribution gap",
+      "text": "Where the record supports unlawful access or password misuse but does not yet lock in the actor, Gemma should preserve the conduct description and identify the missing attribution evidence rather than claiming identity as proven.",
+      "source": "Verum Omnis South Africa grounding principle derived from the Cybercrimes Act",
+      "rank": 71,
+      "tags": ["cybercrime", "attribution", "gaps"]
+    }
+  ]
+}

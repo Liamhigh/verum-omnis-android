@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "jurisdiction": "ZAF",
+    "document_type": "statutes",
+    "last_updated": "2026-03-26",
+    "authoritative_source": [
+      "https://www.justice.gov.za/legislation/acts/2008-071.pdf",
+      "https://www.justice.gov.za/legislation/acts/2020-019-Cybercrimes.pdf",
+      "https://www.justice.gov.za/legislation/acts/2004-012.pdf"
+    ]
+  },
+  "items": [
+    {
+      "id": "zaf-companies-act-22",
+      "title": "Companies Act 71 of 2008: section 22",
+      "text": "Section 22 prohibits carrying on business recklessly, with gross negligence, with intent to defraud, or for a fraudulent purpose.",
+      "source": "Justice.gov.za Companies Act 71 of 2008",
+      "rank": 99,
+      "tags": ["companies act", "reckless trading", "fraudulent purpose"]
+    },
+    {
+      "id": "zaf-companies-act-26",
+      "title": "Companies Act 71 of 2008: section 26",
+      "text": "Section 26 addresses access to company records and is relevant where the sealed record shows a member or stakeholder being blocked from records needed to protect legal or governance rights.",
+      "source": "Justice.gov.za Companies Act 71 of 2008",
+      "rank": 96,
+      "tags": ["company records", "access", "shareholder"]
+    },
+    {
+      "id": "zaf-companies-act-163",
+      "title": "Companies Act 71 of 2008: section 163",
+      "text": "Section 163 provides relief from oppressive or prejudicial conduct and is the primary company-law hook when exclusionary or unfairly prejudicial governance conduct is grounded in the record.",
+      "source": "Justice.gov.za Companies Act 71 of 2008",
+      "rank": 100,
+      "tags": ["oppressive conduct", "prejudicial conduct", "shareholder relief"]
+    },
+    {
+      "id": "zaf-cybercrimes-act",
+      "title": "Cybercrimes Act 19 of 2020",
+      "text": "Primary South African cybercrime statute for unlawful access, interference, password misuse, cyber fraud, cyber forgery, cyber extortion, and related offences.",
+      "source": "Justice.gov.za Cybercrimes Act 19 of 2020",
+      "rank": 98,
+      "tags": ["cybercrimes", "access", "password", "interference"]
+    },
+    {
+      "id": "zaf-precca-3",
+      "title": "Prevention and Combating of Corrupt Activities Act 12 of 2004: section 3",
+      "text": "Section 3 creates the general offence of corruption and matters when a sealed record supports a gratification-based or inducement-based corruption theory rather than a pure governance complaint.",
+      "source": "Justice.gov.za PRECCA",
+      "rank": 94,
+      "tags": ["corruption", "gratification", "inducement"]
+    }
+  ]
+}
