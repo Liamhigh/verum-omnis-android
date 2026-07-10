@@ -12,6 +12,7 @@
     <string name="action_generate_pdf">Store Forensic Report</string>
     <string name="action_open_vault">Open Vault</string>
     <string name="action_view_constitution">Read Constitution</string>
+    <string name="action_open_sealed_pdf">Open sealed PDF</string>
     <string name="selected_file_label">Current Upload</string>
     <string name="no_file_selected">No file selected</string>
     <string name="include_legal_advisory">Add Gemma legal advisory</string>

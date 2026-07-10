@@ -3843,7 +3843,49 @@ public class MainActivity extends AppCompatActivity implements MainScreenControl
     @Override
     public void onReadConstitution() {
 
-        openBundledConstitution();
+        showConstitutionReader();
+    }
+
+    private void showConstitutionReader() {
+
+        String constitutionText;
+        try {
+            constitutionText = readAssetText("docs/verum_omnis_constitution.txt");
+        } catch (Exception e) {
+            // If the bundled text cannot be read for any reason, fall back to the
+            // sealed PDF so the constitution stays reachable.
+            openBundledConstitution();
+            return;
+        }
+
+        TextView textView = new TextView(this);
+        textView.setText(constitutionText);
+        textView.setPadding(40, 40, 40, 40);
+        textView.setTextIsSelectable(true);
+
+        android.widget.ScrollView scrollView = new android.widget.ScrollView(this);
+        scrollView.addView(textView);
+
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.action_view_constitution)
+                .setView(scrollView)
+                .setPositiveButton(R.string.ok, null)
+                .setNeutralButton(R.string.action_open_sealed_pdf, (dialog, which) -> openBundledConstitution())
+                .setCancelable(true)
+                .show();
+    }
+
+    private String readAssetText(String assetPath) throws Exception {
+
+        try (InputStream in = getAssets().open(assetPath);
+             java.io.ByteArrayOutputStream out = new java.io.ByteArrayOutputStream()) {
+            byte[] buffer = new byte[8192];
+            int read;
+            while ((read = in.read(buffer)) != -1) {
+                out.write(buffer, 0, read);
+            }
+            return out.toString("UTF-8");
+        }
     }
 
 
