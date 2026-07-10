@@ -98,6 +98,9 @@
     <string name="scan_qr_empty">No QR payload was returned.</string>
     <string name="scan_qr_pick_file">Seal QR captured. Select the document to compare against the scanned seal.</string>
     <string name="seal_verification_result">Seal Verification Result</string>
+    <string name="verify_seal_result_title">Document Seal (SHA-512)</string>
+    <string name="verify_seal_pick_file">Pick the sealed document to verify</string>
+    <string name="verify_seal_running">Reading full SHA-512 and checking the blockchain anchor…</string>
     <string name="seal_verified_format">Seal verified.\n\nMode: %1$s\nSeal ID: %2$s\nSource: %3$s\nJurisdiction: %4$s\nFull SHA-512 match: yes</string>
     <string name="seal_mismatch_format">Seal mismatch.\n\nSeal ID: %1$s\nExpected SHA-512: %2$s\nActual SHA-512: %3$s</string>
     <string name="seal_legacy_match_format">Legacy Verum QR matched the short seal token.\n\nScanned token: %1$s\nActual SHA-512: %2$s\n\nThis is weaker than the new full-payload verification.</string>

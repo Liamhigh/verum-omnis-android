@@ -81,6 +81,7 @@ import com.verum.omnis.core.AssistanceRestrictionManager;
 import com.verum.omnis.core.BusinessConstitutionManager;
 import com.verum.omnis.core.BoundedRenderSettings;
 import com.verum.omnis.core.ConstitutionalNarrativePacketBuilder;
+import com.verum.omnis.core.SealVerifier;
 import com.verum.omnis.core.ContradictionReportBuilder;
 import com.verum.omnis.core.ContradictionReportModel;
 import com.verum.omnis.core.FindingPublicationNormalizer;
@@ -215,7 +216,9 @@ public class MainActivity extends AppCompatActivity implements MainScreenControl
 
         GENERATE_FORENSIC_PDF,
 
-        VERIFY_SCANNED_SEAL
+        VERIFY_SCANNED_SEAL,
+
+        VERIFY_DOCUMENT_SEAL
 
     }
 
@@ -2809,6 +2812,12 @@ public class MainActivity extends AppCompatActivity implements MainScreenControl
 
                 break;
 
+            case VERIFY_DOCUMENT_SEAL:
+
+                verifySelectedDocumentSeal();
+
+                break;
+
             case SELECT_EVIDENCE:
 
                 break;
@@ -3844,6 +3853,35 @@ public class MainActivity extends AppCompatActivity implements MainScreenControl
     public void onReadConstitution() {
 
         showConstitutionReader();
+    }
+
+    @Override
+    public void onVerifySeal() {
+
+        if (filePickerLauncher == null) {
+            return;
+        }
+        pendingAction = PendingAction.VERIFY_DOCUMENT_SEAL;
+        selectedFileView.setText(getString(R.string.verify_seal_pick_file));
+        filePickerLauncher.launch(new String[]{"*/*"});
+    }
+
+    private void verifySelectedDocumentSeal() {
+
+        if (selectedFile == null) {
+            showDialog(getString(R.string.seal_verification_result), getString(R.string.no_file_selected));
+            return;
+        }
+
+        final File target = selectedFile;
+        setBusy(true, getString(R.string.verify_seal_running));
+        getBackgroundExecutor().execute(() -> {
+            SealVerifier.Report report = SealVerifier.verify(target);
+            runOnUiThread(() -> {
+                setBusy(false, null);
+                showDialog(getString(R.string.verify_seal_result_title), report.summary);
+            });
+        });
     }
 
     private void showConstitutionReader() {
