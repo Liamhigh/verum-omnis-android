@@ -111,6 +111,10 @@ Environment already provisioned in the VM snapshot (do not reinstall): OpenJDK 1
 `platforms;android-35`, `build-tools;35.0.0`) at `~/android-sdk`.
 
 Non-obvious gotchas:
+- The tracked `gradlew` is not marked executable (the canonical env is Windows/`gradlew.bat`),
+  so on a fresh checkout `./gradlew` fails with "Permission denied". The startup update
+  script runs `chmod +x gradlew`; if you hit this manually, use `sh ./gradlew` or
+  `chmod +x gradlew`.
 - `gradle.properties` pins `org.gradle.java.home` to a Windows JDK path that does not
   exist on Linux. Do NOT edit that file (it would break Windows devs). Instead it is
   overridden by `~/.gradle/gradle.properties` (`org.gradle.java.home=/usr/lib/jvm/java-17-openjdk-amd64`),
