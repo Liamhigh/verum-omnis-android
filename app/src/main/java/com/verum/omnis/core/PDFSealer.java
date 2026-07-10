@@ -4,8 +4,10 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.graphics.Shader;
 import android.graphics.pdf.PdfDocument;
 import android.util.TypedValue;
 
@@ -190,8 +192,15 @@ public class PDFSealer {
         int totalPages = Math.max(1, estimatePageCount(bodyLines));
         int lineCursor = 0;
 
+        // Forensic reports open with a branded deep-blue cover page. Content pages
+        // keep their existing 1-based semantics; only the PDF page index is offset.
+        int coverOffset = (req != null && req.mode == DocumentMode.FORENSIC_REPORT) ? 1 : 0;
+        if (coverOffset == 1) {
+            drawReportCoverPage(ctx, doc, req, fullHash, shortHash, 1);
+        }
+
         for (int pageNumber = 1; pageNumber <= totalPages; pageNumber++) {
-            PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(595, 842, pageNumber).create();
+            PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(595, 842, pageNumber + coverOffset).create();
             PdfDocument.Page page = doc.startPage(pageInfo);
             Canvas canvas = page.getCanvas();
             canvas.drawColor(0xFFFFFFFF);
@@ -272,6 +281,150 @@ public class PDFSealer {
             doc.writeTo(fos);
         }
         doc.close();
+    }
+
+    private static void drawReportCoverPage(
+            Context ctx,
+            PdfDocument doc,
+            SealRequest req,
+            String fullHash,
+            String shortHash,
+            int pageNumber
+    ) {
+        PdfDocument.PageInfo info = new PdfDocument.PageInfo.Builder(595, 842, pageNumber).create();
+        PdfDocument.Page page = doc.startPage(info);
+        Canvas canvas = page.getCanvas();
+        float w = info.getPageWidth();
+        float h = info.getPageHeight();
+
+        // Deep-blue gradient background matching the app theme.
+        Paint background = new Paint(Paint.ANTI_ALIAS_FLAG);
+        background.setShader(new LinearGradient(
+                0f, 0f, 0f, h,
+                new int[]{0xFF03152D, 0xFF072347, 0xFF061A37},
+                new float[]{0f, 0.55f, 1f},
+                Shader.TileMode.CLAMP));
+        canvas.drawRect(0f, 0f, w, h, background);
+
+        // Rounded frame.
+        Paint frame = new Paint(Paint.ANTI_ALIAS_FLAG);
+        frame.setStyle(Paint.Style.STROKE);
+        frame.setStrokeWidth(1.4f);
+        frame.setColor(0x553FA9FF);
+        canvas.drawRoundRect(28f, 28f, w - 28f, h - 28f, 18f, 18f, frame);
+
+        // Gold accent rule under the header zone.
+        Paint gold = new Paint(Paint.ANTI_ALIAS_FLAG);
+        gold.setColor(0xFFF7D27A);
+        gold.setStrokeWidth(3f);
+        canvas.drawLine(56f, 150f, w - 56f, 150f, gold);
+
+        // Centered company emblem (transparent globe crest).
+        Bitmap logo = decodeDrawable(ctx, R.drawable.ic_verum_globe, 900);
+        if (logo != null) {
+            RectF bounds = fitRect(logo.getWidth(), logo.getHeight(),
+                    w / 2f - 95f, 220f, w / 2f + 95f, 420f);
+            Bitmap scaled = Bitmap.createScaledBitmap(
+                    logo,
+                    Math.max(1, Math.round(bounds.width())),
+                    Math.max(1, Math.round(bounds.height())),
+                    true);
+            canvas.drawBitmap(scaled, bounds.left, bounds.top, null);
+        }
+
+        Paint title = new Paint(Paint.ANTI_ALIAS_FLAG);
+        title.setColor(0xFFFFFFFF);
+        title.setTextSize(40f);
+        title.setFakeBoldText(true);
+        title.setTextAlign(Paint.Align.CENTER);
+        canvas.drawText("VERUM OMNIS", w / 2f, 500f, title);
+
+        Paint tagline = new Paint(Paint.ANTI_ALIAS_FLAG);
+        tagline.setColor(0xFFF7D27A);
+        tagline.setTextSize(13f);
+        tagline.setTextAlign(Paint.Align.CENTER);
+        canvas.drawText("AI FORENSICS FOR TRUTH", w / 2f, 524f, tagline);
+
+        Paint subtitle = new Paint(Paint.ANTI_ALIAS_FLAG);
+        subtitle.setColor(0xFFD4E6FF);
+        subtitle.setTextSize(18f);
+        subtitle.setFakeBoldText(true);
+        subtitle.setTextAlign(Paint.Align.CENTER);
+        String reportType = (req != null && req.mode == DocumentMode.FORENSIC_REPORT)
+                ? "Constitutional Forensic Report"
+                : "Sealed Document";
+        canvas.drawText(reportType, w / 2f, 560f, subtitle);
+
+        // Metadata card (deterministic fields only; no live date/time).
+        float cardLeft = 60f;
+        float cardRight = w - 60f;
+        float cardTop = 604f;
+        float cardBottom = 742f;
+        Paint card = new Paint(Paint.ANTI_ALIAS_FLAG);
+        card.setColor(0x22FFFFFF);
+        canvas.drawRoundRect(cardLeft, cardTop, cardRight, cardBottom, 16f, 16f, card);
+        Paint cardBorder = new Paint(Paint.ANTI_ALIAS_FLAG);
+        cardBorder.setStyle(Paint.Style.STROKE);
+        cardBorder.setStrokeWidth(1f);
+        cardBorder.setColor(0x334FB8FF);
+        canvas.drawRoundRect(cardLeft, cardTop, cardRight, cardBottom, 16f, 16f, cardBorder);
+
+        float labelX = cardLeft + 18f;
+        float valueX = cardLeft + 150f;
+        float rowY = cardTop + 28f;
+        rowY = drawCoverRow(canvas, "Case ID", emptyOr(req != null ? req.caseId : null, "Unspecified"), labelX, valueX, rowY, cardRight - 18f);
+        rowY = drawCoverRow(canvas, "Jurisdiction", emptyOr(req != null ? req.jurisdiction : null, "Unspecified"), labelX, valueX, rowY, cardRight - 18f);
+        rowY = drawCoverRow(canvas, "Source File", emptyOr(req != null ? req.sourceFileName : null, "Unspecified"), labelX, valueX, rowY, cardRight - 18f);
+        drawCoverRow(canvas, "Evidence SHA-512", formatHashSnippet(fullHash), labelX, valueX, rowY, cardRight - 18f);
+
+        Paint footer = new Paint(Paint.ANTI_ALIAS_FLAG);
+        footer.setColor(0xFFB2C7E5);
+        footer.setTextSize(9f);
+        footer.setTextAlign(Paint.Align.CENTER);
+        canvas.drawText(
+                "Sealed under the Verum Omnis Constitution v5.2.7  -  Immutable, Forensic, Final",
+                w / 2f, h - 54f, footer);
+
+        doc.finishPage(page);
+    }
+
+    private static float drawCoverRow(
+            Canvas canvas,
+            String label,
+            String value,
+            float labelX,
+            float valueX,
+            float y,
+            float rightEdge
+    ) {
+        Paint labelPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        labelPaint.setColor(0xFFF7D27A);
+        labelPaint.setTextSize(11f);
+        labelPaint.setFakeBoldText(true);
+        canvas.drawText(label, labelX, y, labelPaint);
+
+        return drawWrappedLine(canvas, value, valueX, y, rightEdge - valueX, 15f, 0xFFFFFFFF, 11f);
+    }
+
+    private static String emptyOr(String value, String fallback) {
+        return (value == null || value.trim().isEmpty()) ? fallback : value.trim();
+    }
+
+    private static Bitmap decodeDrawable(Context ctx, int resId, int maxSide) {
+        BitmapFactory.Options bounds = new BitmapFactory.Options();
+        bounds.inJustDecodeBounds = true;
+        BitmapFactory.decodeResource(ctx.getResources(), resId, bounds);
+
+        int sampleSize = 1;
+        int longestSide = Math.max(bounds.outWidth, bounds.outHeight);
+        while (longestSide / sampleSize > maxSide) {
+            sampleSize *= 2;
+        }
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+        options.inSampleSize = Math.max(1, sampleSize);
+        Bitmap decoded = BitmapFactory.decodeResource(ctx.getResources(), resId, options);
+        return scaleBitmapDown(decoded, maxSide);
     }
 
     private static Bitmap makeQr(String text) throws WriterException {
