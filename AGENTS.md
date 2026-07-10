@@ -99,3 +99,32 @@ When working on report-layer logic, also verify:
 - No unanchored role labels
 - No renderer-specific legal embellishment
 - Tests green
+
+## Cursor Cloud specific instructions
+
+This is a single-module (`:app`) Android app (AGP 9.1.0, Gradle 9.3.1 via the wrapper,
+Kotlin 2.2.10, compileSdk/targetSdk 35, minSdk 27). The canonical dev environment is
+Windows (`./gradlew.bat`); on the Linux cloud VM use `./gradlew` instead.
+
+Environment already provisioned in the VM snapshot (do not reinstall): OpenJDK 17 at
+`/usr/lib/jvm/java-17-openjdk-amd64` and the Android SDK (cmdline-tools, platform-tools,
+`platforms;android-35`, `build-tools;35.0.0`) at `~/android-sdk`.
+
+Non-obvious gotchas:
+- `gradle.properties` pins `org.gradle.java.home` to a Windows JDK path that does not
+  exist on Linux. Do NOT edit that file (it would break Windows devs). Instead it is
+  overridden by `~/.gradle/gradle.properties` (`org.gradle.java.home=/usr/lib/jvm/java-17-openjdk-amd64`),
+  which takes precedence over the project file. The startup update script recreates this
+  override and `local.properties` (`sdk.dir=~/android-sdk`) if missing.
+- No emulator/instrumented tests in this VM: there is no `/dev/kvm`, so an API-35 emulator
+  cannot run. `connectedDebugAndroidTest` and the `ForensicRegressionTest` /
+  `GreenskyLegalAdvisoryTest` instrumentation suites cannot be executed here. The core
+  forensic/report pipeline is fully covered by pure-JVM unit tests (`app/src/test`), which
+  is the primary verification path — most `core` report classes (e.g. `ReadableBriefBuilder`)
+  have no `android.*` deps.
+- `./gradlew :app:lintDebug` currently reports pre-existing code errors (e.g. `NewApi`:
+  `InputStream#readAllBytes` in `CaseFileManager.java` requires API 33 but minSdk is 27).
+  These are codebase issues, not environment issues; lint itself runs correctly.
+
+Standard commands (see AGENTS.md "Required Verification" above): `./gradlew testDebugUnitTest`
+and `./gradlew :app:assembleDebug` (debug APK lands in `app/build/outputs/apk/debug/`).
