@@ -20,6 +20,19 @@ public class HashUtil {
         return toHex(md.digest());
     }
 
+    /** Compute SHA-256 hash of a file */
+    public static String sha256File(File file) throws Exception {
+        MessageDigest md = MessageDigest.getInstance("SHA-256");
+        try (FileInputStream fis = new FileInputStream(file)) {
+            byte[] buf = new byte[8192];
+            int r;
+            while ((r = fis.read(buf)) != -1) {
+                md.update(buf, 0, r);
+            }
+        }
+        return toHex(md.digest());
+    }
+
     /** Compute SHA-512 hash of a byte[] */
     public static String sha512(byte[] data) throws Exception {
         MessageDigest md = MessageDigest.getInstance("SHA-512");

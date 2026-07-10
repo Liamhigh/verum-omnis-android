@@ -81,6 +81,9 @@ import com.verum.omnis.core.AssistanceRestrictionManager;
 import com.verum.omnis.core.BusinessConstitutionManager;
 import com.verum.omnis.core.BoundedRenderSettings;
 import com.verum.omnis.core.ConstitutionalNarrativePacketBuilder;
+import com.verum.omnis.core.OpenTimestampsClient;
+import com.verum.omnis.core.SealManifest;
+import com.verum.omnis.core.SealVerifier;
 import com.verum.omnis.core.ContradictionReportBuilder;
 import com.verum.omnis.core.ContradictionReportModel;
 import com.verum.omnis.core.FindingPublicationNormalizer;
@@ -215,7 +218,11 @@ public class MainActivity extends AppCompatActivity implements MainScreenControl
 
         GENERATE_FORENSIC_PDF,
 
-        VERIFY_SCANNED_SEAL
+        VERIFY_SCANNED_SEAL,
+
+        VERIFY_DOCUMENT_SEAL,
+
+        ANCHOR_TO_BITCOIN
 
     }
 
@@ -1871,6 +1878,8 @@ public class MainActivity extends AppCompatActivity implements MainScreenControl
 
                 }
 
+                writeSealManifestSidecar(outFile);
+
                 runOnUiThread(() -> {
 
                     setBusy(false, null);
@@ -2806,6 +2815,18 @@ public class MainActivity extends AppCompatActivity implements MainScreenControl
             case VERIFY_SCANNED_SEAL:
 
                 verifyScannedSealAgainstSelectedFile();
+
+                break;
+
+            case VERIFY_DOCUMENT_SEAL:
+
+                verifySelectedDocumentSeal();
+
+                break;
+
+            case ANCHOR_TO_BITCOIN:
+
+                anchorSelectedDocumentToBitcoin();
 
                 break;
 
@@ -3843,7 +3864,180 @@ public class MainActivity extends AppCompatActivity implements MainScreenControl
     @Override
     public void onReadConstitution() {
 
-        openBundledConstitution();
+        showConstitutionReader();
+    }
+
+    @Override
+    public void onVerifySeal() {
+
+        if (filePickerLauncher == null) {
+            return;
+        }
+        pendingAction = PendingAction.VERIFY_DOCUMENT_SEAL;
+        selectedFileView.setText(getString(R.string.verify_seal_pick_file));
+        filePickerLauncher.launch(new String[]{"*/*"});
+    }
+
+    /**
+     * Writes a deterministic hash manifest next to a freshly sealed artifact.
+     * The SHA-512 (and the SHA-256 that OpenTimestamps anchors to Bitcoin) are
+     * computed last, over the complete sealed document with everything in it.
+     * Best-effort: never breaks sealing.
+     */
+    private void writeSealManifestSidecar(File sealedFile) {
+
+        if (sealedFile == null || !sealedFile.exists()) {
+            return;
+        }
+        try {
+            String sha512 = HashUtil.sha512File(sealedFile);
+            String sha256 = HashUtil.sha256File(sealedFile);
+            String json = SealManifest.build(sealedFile.getName(), sha512, sha256);
+            File sidecar = SealManifest.sidecarFor(sealedFile);
+            try (FileOutputStream fos = new FileOutputStream(sidecar)) {
+                fos.write(json.getBytes(java.nio.charset.StandardCharsets.UTF_8));
+            }
+        } catch (Throwable ignored) {
+            // Sidecar generation is best-effort and must never break sealing.
+        }
+    }
+
+    @Override
+    public void onAnchorToBitcoin() {
+
+        if (filePickerLauncher == null) {
+            return;
+        }
+        pendingAction = PendingAction.ANCHOR_TO_BITCOIN;
+        selectedFileView.setText(getString(R.string.anchor_pick_file));
+        filePickerLauncher.launch(new String[]{"*/*"});
+    }
+
+    private void anchorSelectedDocumentToBitcoin() {
+
+        if (selectedFile == null) {
+            showDialog(getString(R.string.anchor_result_title), getString(R.string.no_file_selected));
+            return;
+        }
+
+        final File target = selectedFile;
+        setBusy(true, getString(R.string.anchor_running));
+        getBackgroundExecutor().execute(() -> {
+            // Write the .ots next to the vault copy (when present) so Verify Seal
+            // can find it later; otherwise beside the picked file.
+            File otsDir = target.getParentFile();
+            try {
+                File vaultDir = VaultManager.getVaultDir(this);
+                if (vaultDir != null && new File(vaultDir, target.getName()).exists()) {
+                    otsDir = vaultDir;
+                }
+            } catch (Throwable ignored) {
+                // keep default dir
+            }
+
+            OpenTimestampsClient.Result result = OpenTimestampsClient.stampFile(target, otsDir);
+            String message;
+            if (result.success) {
+                message = getString(
+                        R.string.anchor_success_format,
+                        result.calendarUsed,
+                        result.sha256,
+                        result.otsFile != null ? result.otsFile.getName() : (target.getName() + ".ots"));
+            } else {
+                message = getString(R.string.anchor_failed_format, result.message);
+            }
+            runOnUiThread(() -> {
+                setBusy(false, null);
+                showDialog(getString(R.string.anchor_result_title), message);
+            });
+        });
+    }
+
+    private void verifySelectedDocumentSeal() {
+
+        if (selectedFile == null) {
+            showDialog(getString(R.string.seal_verification_result), getString(R.string.no_file_selected));
+            return;
+        }
+
+        final File target = selectedFile;
+        setBusy(true, getString(R.string.verify_seal_running));
+        getBackgroundExecutor().execute(() -> {
+            File ots = resolveSealSidecar(target, target.getName() + ".ots");
+            File manifest = resolveSealSidecar(target, target.getName() + SealManifest.SIDECAR_SUFFIX);
+            SealVerifier.Report report = SealVerifier.verify(target, ots, manifest);
+            runOnUiThread(() -> {
+                setBusy(false, null);
+                showDialog(getString(R.string.verify_seal_result_title), report.summary);
+            });
+        });
+    }
+
+    /**
+     * Resolves a seal sidecar ({@code .ots} or {@code .verum-seal.json}) either
+     * next to the picked file or, since verification usually runs on a cache copy,
+     * in the vault by matching file name.
+     */
+    private File resolveSealSidecar(File sealedFile, String sidecarName) {
+
+        File local = new File(sealedFile.getParentFile(), sidecarName);
+        if (local.exists()) {
+            return local;
+        }
+        try {
+            File vaultDir = VaultManager.getVaultDir(this);
+            if (vaultDir != null) {
+                File inVault = new File(vaultDir, sidecarName);
+                if (inVault.exists()) {
+                    return inVault;
+                }
+            }
+        } catch (Throwable ignored) {
+            // Fall through to the local (possibly non-existent) path.
+        }
+        return local;
+    }
+
+    private void showConstitutionReader() {
+
+        String constitutionText;
+        try {
+            constitutionText = readAssetText("docs/verum_omnis_constitution.txt");
+        } catch (Exception e) {
+            // If the bundled text cannot be read for any reason, fall back to the
+            // sealed PDF so the constitution stays reachable.
+            openBundledConstitution();
+            return;
+        }
+
+        TextView textView = new TextView(this);
+        textView.setText(constitutionText);
+        textView.setPadding(40, 40, 40, 40);
+        textView.setTextIsSelectable(true);
+
+        android.widget.ScrollView scrollView = new android.widget.ScrollView(this);
+        scrollView.addView(textView);
+
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.action_view_constitution)
+                .setView(scrollView)
+                .setPositiveButton(R.string.ok, null)
+                .setNeutralButton(R.string.action_open_sealed_pdf, (dialog, which) -> openBundledConstitution())
+                .setCancelable(true)
+                .show();
+    }
+
+    private String readAssetText(String assetPath) throws Exception {
+
+        try (InputStream in = getAssets().open(assetPath);
+             java.io.ByteArrayOutputStream out = new java.io.ByteArrayOutputStream()) {
+            byte[] buffer = new byte[8192];
+            int read;
+            while ((read = in.read(buffer)) != -1) {
+                out.write(buffer, 0, read);
+            }
+            return out.toString("UTF-8");
+        }
     }
 
 

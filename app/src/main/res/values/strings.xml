@@ -12,6 +12,7 @@
     <string name="action_generate_pdf">Store Forensic Report</string>
     <string name="action_open_vault">Open Vault</string>
     <string name="action_view_constitution">Read Constitution</string>
+    <string name="action_open_sealed_pdf">Open sealed PDF</string>
     <string name="selected_file_label">Current Upload</string>
     <string name="no_file_selected">No file selected</string>
     <string name="include_legal_advisory">Add Gemma legal advisory</string>
@@ -97,6 +98,14 @@
     <string name="scan_qr_empty">No QR payload was returned.</string>
     <string name="scan_qr_pick_file">Seal QR captured. Select the document to compare against the scanned seal.</string>
     <string name="seal_verification_result">Seal Verification Result</string>
+    <string name="verify_seal_result_title">Document Seal (SHA-512)</string>
+    <string name="verify_seal_pick_file">Pick the sealed document to verify</string>
+    <string name="verify_seal_running">Reading full SHA-512 and checking the blockchain anchor…</string>
+    <string name="anchor_result_title">Anchor to Bitcoin (OpenTimestamps)</string>
+    <string name="anchor_pick_file">Pick the sealed document to anchor to Bitcoin</string>
+    <string name="anchor_running">Requesting an OpenTimestamps proof from a Bitcoin calendar…</string>
+    <string name="anchor_success_format">Document submitted to the OpenTimestamps calendar.\n\nCalendar: %1$s\nDocument SHA-256: %2$s\nProof saved: %3$s\n\nStatus: pending Bitcoin confirmation. The proof upgrades to a full Bitcoin attestation once the calendar\'s next transaction is mined. Verify anytime here or on opentimestamps.org.</string>
+    <string name="anchor_failed_format">Could not anchor to Bitcoin.\n\n%1$s\n\nThe sealed document and its SHA-512 are unaffected; you can retry the anchor when a network is available.</string>
     <string name="seal_verified_format">Seal verified.\n\nMode: %1$s\nSeal ID: %2$s\nSource: %3$s\nJurisdiction: %4$s\nFull SHA-512 match: yes</string>
     <string name="seal_mismatch_format">Seal mismatch.\n\nSeal ID: %1$s\nExpected SHA-512: %2$s\nActual SHA-512: %3$s</string>
     <string name="seal_legacy_match_format">Legacy Verum QR matched the short seal token.\n\nScanned token: %1$s\nActual SHA-512: %2$s\n\nThis is weaker than the new full-payload verification.</string>

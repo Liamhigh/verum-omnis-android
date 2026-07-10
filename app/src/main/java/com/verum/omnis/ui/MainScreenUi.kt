@@ -79,6 +79,8 @@ interface MainScreenController {
     fun onOpenVault()
     fun onOpenGemma()
     fun onReadConstitution()
+    fun onVerifySeal()
+    fun onAnchorToBitcoin()
     fun onLegalAdvisoryChanged(enabled: Boolean)
     fun onBoundedHumanBriefChanged(enabled: Boolean)
     fun onBoundedPoliceSummaryChanged(enabled: Boolean)
@@ -211,6 +213,7 @@ private fun MainScreen(
             )
 
             HeroPanel()
+            ConstitutionCard(state = state, controller = controller)
             EvidencePanel(state = state, controller = controller)
             ActionGrid(state = state, controller = controller)
             IntroVideoCard()
@@ -234,6 +237,47 @@ private fun MainScreen(
                 textAlign = TextAlign.Center,
                 modifier = Modifier.fillMaxWidth()
             )
+        }
+    }
+}
+
+@Composable
+private fun ConstitutionCard(
+    state: MainScreenUiState,
+    controller: MainScreenController
+) {
+    GlassCard {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Text(
+                text = "The Constitution",
+                color = Color.White,
+                fontWeight = FontWeight.Bold,
+                fontSize = 20.sp,
+                modifier = Modifier.weight(1f)
+            )
+            VerumChip("v5.2.7")
+        }
+        Spacer(modifier = Modifier.height(8.dp))
+        Text(
+            text = "Verum Omnis operates under a binding, immutable Constitution and the " +
+                "Nine-Brain rules: truth over probability, evidence before narrative, " +
+                "mandatory contradiction disclosure, and determinism. It is free for " +
+                "citizens and always available to read here.",
+            color = Color(0xFFD4E6FF),
+            fontSize = 14.sp,
+            lineHeight = 20.sp
+        )
+        Spacer(modifier = Modifier.height(14.dp))
+        Button(
+            onClick = controller::onReadConstitution,
+            enabled = state.canReadConstitution,
+            modifier = Modifier.fillMaxWidth(),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color(0xFFF7D27A),
+                contentColor = Color(0xFF03152D)
+            )
+        ) {
+            Text("Read Constitution", fontWeight = FontWeight.Bold)
         }
     }
 }
@@ -486,6 +530,24 @@ private fun ActionGrid(
             colors = ButtonDefaults.outlinedButtonColors(contentColor = Color.White)
         ) {
             Text("Scan & Verify QR", textAlign = TextAlign.Center)
+        }
+        Spacer(modifier = Modifier.height(10.dp))
+        OutlinedButton(
+            onClick = controller::onVerifySeal,
+            enabled = state.canScanQr,
+            modifier = Modifier.fillMaxWidth(),
+            colors = ButtonDefaults.outlinedButtonColors(contentColor = Color.White)
+        ) {
+            Text("Verify Seal (SHA-512)", textAlign = TextAlign.Center)
+        }
+        Spacer(modifier = Modifier.height(10.dp))
+        OutlinedButton(
+            onClick = controller::onAnchorToBitcoin,
+            enabled = state.canScanQr,
+            modifier = Modifier.fillMaxWidth(),
+            colors = ButtonDefaults.outlinedButtonColors(contentColor = Color.White)
+        ) {
+            Text("Anchor to Bitcoin (OpenTimestamps)", textAlign = TextAlign.Center)
         }
         Spacer(modifier = Modifier.height(10.dp))
         OutlinedButton(
