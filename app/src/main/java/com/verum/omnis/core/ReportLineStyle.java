@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
  */
 public final class ReportLineStyle {
 
-    public enum Kind { H1, H2, FINDING, EVIDENCE, STATUTE, BODY }
+    public enum Kind { H1, H2, FINDING, SEVERITY, CONTRADICTION, EVIDENCE, STATUTE, BODY }
 
     // Colours chosen for a white report page.
     private static final int COLOR_H1 = 0xFF0C254D;       // deep blue
@@ -21,14 +21,25 @@ public final class ReportLineStyle {
     private static final int COLOR_FINDING = 0xFF9A6A00;  // amber
     private static final int COLOR_EVIDENCE = 0xFF1B6B3A; // green
     private static final int COLOR_STATUTE = 0xFF6A1B9A;  // purple
+    private static final int COLOR_CONTRADICTION = 0xFF00695C; // teal
     private static final int COLOR_BODY = 0xFF1E1E1E;     // near-black
+
+    // Severity colours by ordinal level.
+    private static final int COLOR_SEV_VERY_HIGH = 0xFFB00020; // red
+    private static final int COLOR_SEV_HIGH = 0xFFC85A00;      // orange
+    private static final int COLOR_SEV_MODERATE = 0xFF9A6A00;  // amber
+    private static final int COLOR_SEV_LOW = 0xFF5F6A7A;       // slate
 
     private static final Pattern SECTION = Pattern.compile("^\\d+\\.\\s+\\S.*");
     private static final Pattern SUBSECTION = Pattern.compile("^\\d+\\.\\d+\\S*\\s+\\S.*");
     private static final Pattern FINDING = Pattern.compile("^(FINDING|CORE FINDING|KEY FINDING)\\b.*", Pattern.CASE_INSENSITIVE);
+    private static final Pattern SEVERITY = Pattern.compile("^SEVERITY\\s*[:\\-].*", Pattern.CASE_INSENSITIVE);
+    private static final Pattern CONTRADICTION = Pattern.compile("^Contradiction\\s+C-?\\d+\\b.*", Pattern.CASE_INSENSITIVE);
     private static final Pattern EVIDENCE = Pattern.compile("^(Evidence|Anchor|Anchored evidence|Source)\\s*[:\\-].*", Pattern.CASE_INSENSITIVE);
     private static final Pattern STATUTE = Pattern.compile(
-            ".*\\b(Act\\s+\\d+\\s+of\\s+\\d{4}|Section\\s+\\d+|s\\.?\\s?\\d+\\(|Article\\s+\\d+|POCA|ECT Act|Petroleum Products Act)\\b.*");
+            ".*\\b(Act\\s+\\d+\\s+of\\s+\\d{4}|(Federal\\s+)?(Decree-)?Law\\s+No\\.?\\s+\\d+\\s+of\\s+\\d{4}"
+                    + "|Section\\s+\\d+|s\\.?\\s?\\d+\\(|Article\\s+\\d+|POCA|ECT Act|Cybercrimes Act"
+                    + "|Companies Law|Petroleum Products Act)\\b.*");
 
     public final Kind kind;
     public final int colorArgb;
@@ -50,6 +61,12 @@ public final class ReportLineStyle {
         if (FINDING.matcher(line).matches()) {
             return new ReportLineStyle(Kind.FINDING, COLOR_FINDING, 12f, true);
         }
+        if (SEVERITY.matcher(line).matches()) {
+            return new ReportLineStyle(Kind.SEVERITY, severityColor(line), 11f, true);
+        }
+        if (CONTRADICTION.matcher(line).matches()) {
+            return new ReportLineStyle(Kind.CONTRADICTION, COLOR_CONTRADICTION, 11.5f, true);
+        }
         if (EVIDENCE.matcher(line).matches()) {
             return new ReportLineStyle(Kind.EVIDENCE, COLOR_EVIDENCE, 11f, false);
         }
@@ -67,6 +84,20 @@ public final class ReportLineStyle {
             return new ReportLineStyle(Kind.STATUTE, COLOR_STATUTE, 11f, false);
         }
         return new ReportLineStyle(Kind.BODY, COLOR_BODY, 11f, false);
+    }
+
+    private static int severityColor(String line) {
+        String upper = line.toUpperCase(java.util.Locale.US);
+        if (upper.contains("VERY HIGH")) {
+            return COLOR_SEV_VERY_HIGH;
+        }
+        if (upper.contains("HIGH")) {
+            return COLOR_SEV_HIGH;
+        }
+        if (upper.contains("MODERATE")) {
+            return COLOR_SEV_MODERATE;
+        }
+        return COLOR_SEV_LOW; // LOW / INSUFFICIENT / unspecified
     }
 
     /** True for short, mostly-uppercase heading lines like "EXECUTIVE SUMMARY". */
