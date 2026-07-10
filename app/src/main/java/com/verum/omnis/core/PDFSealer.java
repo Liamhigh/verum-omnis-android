@@ -1192,6 +1192,13 @@ public class PDFSealer {
                 continue;
             }
 
+            // Colour-code the line by its shape (heading, finding, evidence anchor,
+            // statute, body). Presentational only; content is never changed.
+            ReportLineStyle style = ReportLineStyle.classify(rawLine);
+            paint.setColor(style.colorArgb);
+            paint.setTextSize(style.textSize);
+            paint.setFakeBoldText(style.bold);
+
             List<String> words = tokenizeForWrap(paint, rawLine, maxWidth);
             StringBuilder line = new StringBuilder();
             for (String word : words) {
