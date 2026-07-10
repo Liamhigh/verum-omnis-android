@@ -81,6 +81,7 @@ import com.verum.omnis.core.AssistanceRestrictionManager;
 import com.verum.omnis.core.BusinessConstitutionManager;
 import com.verum.omnis.core.BoundedRenderSettings;
 import com.verum.omnis.core.ConstitutionalNarrativePacketBuilder;
+import com.verum.omnis.core.SealManifest;
 import com.verum.omnis.core.SealVerifier;
 import com.verum.omnis.core.ContradictionReportBuilder;
 import com.verum.omnis.core.ContradictionReportModel;
@@ -3882,18 +3883,8 @@ public class MainActivity extends AppCompatActivity implements MainScreenControl
         try {
             String sha512 = HashUtil.sha512File(sealedFile);
             String sha256 = HashUtil.sha256File(sealedFile);
-            String json = "{\n"
-                    + "  \"scheme\": \"verum-omnis-seal-manifest\",\n"
-                    + "  \"version\": \"1.0\",\n"
-                    + "  \"artifact\": " + JSONObject.quote(sealedFile.getName()) + ",\n"
-                    + "  \"sha512\": \"" + sha512 + "\",\n"
-                    + "  \"sha256\": \"" + sha256 + "\",\n"
-                    + "  \"bitcoinAnchorDigestAlgorithm\": \"SHA-256\",\n"
-                    + "  \"otsSidecar\": " + JSONObject.quote(sealedFile.getName() + ".ots") + ",\n"
-                    + "  \"note\": \"SHA-512 and SHA-256 are computed over the complete sealed document. "
-                    + "Anchor the SHA-256 to Bitcoin with OpenTimestamps and keep the .ots sidecar next to this file.\"\n"
-                    + "}\n";
-            File sidecar = new File(sealedFile.getParentFile(), sealedFile.getName() + ".verum-seal.json");
+            String json = SealManifest.build(sealedFile.getName(), sha512, sha256);
+            File sidecar = SealManifest.sidecarFor(sealedFile);
             try (FileOutputStream fos = new FileOutputStream(sidecar)) {
                 fos.write(json.getBytes(java.nio.charset.StandardCharsets.UTF_8));
             }
@@ -3912,12 +3903,39 @@ public class MainActivity extends AppCompatActivity implements MainScreenControl
         final File target = selectedFile;
         setBusy(true, getString(R.string.verify_seal_running));
         getBackgroundExecutor().execute(() -> {
-            SealVerifier.Report report = SealVerifier.verify(target);
+            File ots = resolveSealSidecar(target, target.getName() + ".ots");
+            File manifest = resolveSealSidecar(target, target.getName() + SealManifest.SIDECAR_SUFFIX);
+            SealVerifier.Report report = SealVerifier.verify(target, ots, manifest);
             runOnUiThread(() -> {
                 setBusy(false, null);
                 showDialog(getString(R.string.verify_seal_result_title), report.summary);
             });
         });
+    }
+
+    /**
+     * Resolves a seal sidecar ({@code .ots} or {@code .verum-seal.json}) either
+     * next to the picked file or, since verification usually runs on a cache copy,
+     * in the vault by matching file name.
+     */
+    private File resolveSealSidecar(File sealedFile, String sidecarName) {
+
+        File local = new File(sealedFile.getParentFile(), sidecarName);
+        if (local.exists()) {
+            return local;
+        }
+        try {
+            File vaultDir = VaultManager.getVaultDir(this);
+            if (vaultDir != null) {
+                File inVault = new File(vaultDir, sidecarName);
+                if (inVault.exists()) {
+                    return inVault;
+                }
+            }
+        } catch (Throwable ignored) {
+            // Fall through to the local (possibly non-existent) path.
+        }
+        return local;
     }
 
     private void showConstitutionReader() {
