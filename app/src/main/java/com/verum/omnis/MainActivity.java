@@ -81,6 +81,7 @@ import com.verum.omnis.core.AssistanceRestrictionManager;
 import com.verum.omnis.core.BusinessConstitutionManager;
 import com.verum.omnis.core.BoundedRenderSettings;
 import com.verum.omnis.core.ConstitutionalNarrativePacketBuilder;
+import com.verum.omnis.core.OpenTimestampsClient;
 import com.verum.omnis.core.SealManifest;
 import com.verum.omnis.core.SealVerifier;
 import com.verum.omnis.core.ContradictionReportBuilder;
@@ -219,7 +220,9 @@ public class MainActivity extends AppCompatActivity implements MainScreenControl
 
         VERIFY_SCANNED_SEAL,
 
-        VERIFY_DOCUMENT_SEAL
+        VERIFY_DOCUMENT_SEAL,
+
+        ANCHOR_TO_BITCOIN
 
     }
 
@@ -2821,6 +2824,12 @@ public class MainActivity extends AppCompatActivity implements MainScreenControl
 
                 break;
 
+            case ANCHOR_TO_BITCOIN:
+
+                anchorSelectedDocumentToBitcoin();
+
+                break;
+
             case SELECT_EVIDENCE:
 
                 break;
@@ -3891,6 +3900,57 @@ public class MainActivity extends AppCompatActivity implements MainScreenControl
         } catch (Throwable ignored) {
             // Sidecar generation is best-effort and must never break sealing.
         }
+    }
+
+    @Override
+    public void onAnchorToBitcoin() {
+
+        if (filePickerLauncher == null) {
+            return;
+        }
+        pendingAction = PendingAction.ANCHOR_TO_BITCOIN;
+        selectedFileView.setText(getString(R.string.anchor_pick_file));
+        filePickerLauncher.launch(new String[]{"*/*"});
+    }
+
+    private void anchorSelectedDocumentToBitcoin() {
+
+        if (selectedFile == null) {
+            showDialog(getString(R.string.anchor_result_title), getString(R.string.no_file_selected));
+            return;
+        }
+
+        final File target = selectedFile;
+        setBusy(true, getString(R.string.anchor_running));
+        getBackgroundExecutor().execute(() -> {
+            // Write the .ots next to the vault copy (when present) so Verify Seal
+            // can find it later; otherwise beside the picked file.
+            File otsDir = target.getParentFile();
+            try {
+                File vaultDir = VaultManager.getVaultDir(this);
+                if (vaultDir != null && new File(vaultDir, target.getName()).exists()) {
+                    otsDir = vaultDir;
+                }
+            } catch (Throwable ignored) {
+                // keep default dir
+            }
+
+            OpenTimestampsClient.Result result = OpenTimestampsClient.stampFile(target, otsDir);
+            String message;
+            if (result.success) {
+                message = getString(
+                        R.string.anchor_success_format,
+                        result.calendarUsed,
+                        result.sha256,
+                        result.otsFile != null ? result.otsFile.getName() : (target.getName() + ".ots"));
+            } else {
+                message = getString(R.string.anchor_failed_format, result.message);
+            }
+            runOnUiThread(() -> {
+                setBusy(false, null);
+                showDialog(getString(R.string.anchor_result_title), message);
+            });
+        });
     }
 
     private void verifySelectedDocumentSeal() {

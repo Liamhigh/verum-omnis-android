@@ -80,6 +80,7 @@ interface MainScreenController {
     fun onOpenGemma()
     fun onReadConstitution()
     fun onVerifySeal()
+    fun onAnchorToBitcoin()
     fun onLegalAdvisoryChanged(enabled: Boolean)
     fun onBoundedHumanBriefChanged(enabled: Boolean)
     fun onBoundedPoliceSummaryChanged(enabled: Boolean)
@@ -538,6 +539,15 @@ private fun ActionGrid(
             colors = ButtonDefaults.outlinedButtonColors(contentColor = Color.White)
         ) {
             Text("Verify Seal (SHA-512)", textAlign = TextAlign.Center)
+        }
+        Spacer(modifier = Modifier.height(10.dp))
+        OutlinedButton(
+            onClick = controller::onAnchorToBitcoin,
+            enabled = state.canScanQr,
+            modifier = Modifier.fillMaxWidth(),
+            colors = ButtonDefaults.outlinedButtonColors(contentColor = Color.White)
+        ) {
+            Text("Anchor to Bitcoin (OpenTimestamps)", textAlign = TextAlign.Center)
         }
         Spacer(modifier = Modifier.height(10.dp))
         OutlinedButton(
