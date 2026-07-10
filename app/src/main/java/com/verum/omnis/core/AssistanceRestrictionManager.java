@@ -18,6 +18,19 @@ public final class AssistanceRestrictionManager {
     private static final String LEGACY_REASON_PREFIX =
             "Dishonesty threshold reached after full forensic completion.";
 
+    /**
+     * The Verum Omnis Constitution (public record at the Constitutional Court)
+     * governs the communicating AIs directly: truth over probability, evidence
+     * before narrative, and mandatory contradiction disclosure. Per the
+     * founder's direction, the app no longer layers an extra assistance lockout
+     * on top of that constitution, so the front-facing AIs can communicate
+     * freely. The forensic engine still detects and discloses any integrity
+     * concerns (e.g. tampering/forgery) inside the sealed findings themselves.
+     *
+     * <p>Set to {@code true} to re-enable the hard assistance lockout.</p>
+     */
+    public static final boolean ASSISTANCE_LOCKOUT_ENFORCED = false;
+
     private AssistanceRestrictionManager() {}
 
     public static final class Snapshot {
@@ -37,6 +50,9 @@ public final class AssistanceRestrictionManager {
     }
 
     public static Snapshot load(Context context) {
+        if (!ASSISTANCE_LOCKOUT_ENFORCED) {
+            return new Snapshot(false, "", "", "", 0L);
+        }
         SharedPreferences prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE);
         boolean restricted = prefs.getBoolean(KEY_RESTRICTED, false);
         String reason = prefs.getString(KEY_REASON, "");
@@ -56,6 +72,9 @@ public final class AssistanceRestrictionManager {
     public static Snapshot preview(AnalysisEngine.ForensicReport report) {
         if (report == null) {
             return new Snapshot(false, "", "", "", 0L);
+        }
+        if (!ASSISTANCE_LOCKOUT_ENFORCED) {
+            return new Snapshot(false, "", report.caseId, report.evidenceHashShort, 0L);
         }
 
         JSONObject diagnostics = report.diagnostics != null ? report.diagnostics : new JSONObject();
