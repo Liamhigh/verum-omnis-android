@@ -1874,6 +1874,8 @@ public class MainActivity extends AppCompatActivity implements MainScreenControl
 
                 }
 
+                writeSealManifestSidecar(outFile);
+
                 runOnUiThread(() -> {
 
                     setBusy(false, null);
@@ -3864,6 +3866,40 @@ public class MainActivity extends AppCompatActivity implements MainScreenControl
         pendingAction = PendingAction.VERIFY_DOCUMENT_SEAL;
         selectedFileView.setText(getString(R.string.verify_seal_pick_file));
         filePickerLauncher.launch(new String[]{"*/*"});
+    }
+
+    /**
+     * Writes a deterministic hash manifest next to a freshly sealed artifact.
+     * The SHA-512 (and the SHA-256 that OpenTimestamps anchors to Bitcoin) are
+     * computed last, over the complete sealed document with everything in it.
+     * Best-effort: never breaks sealing.
+     */
+    private void writeSealManifestSidecar(File sealedFile) {
+
+        if (sealedFile == null || !sealedFile.exists()) {
+            return;
+        }
+        try {
+            String sha512 = HashUtil.sha512File(sealedFile);
+            String sha256 = HashUtil.sha256File(sealedFile);
+            String json = "{\n"
+                    + "  \"scheme\": \"verum-omnis-seal-manifest\",\n"
+                    + "  \"version\": \"1.0\",\n"
+                    + "  \"artifact\": " + JSONObject.quote(sealedFile.getName()) + ",\n"
+                    + "  \"sha512\": \"" + sha512 + "\",\n"
+                    + "  \"sha256\": \"" + sha256 + "\",\n"
+                    + "  \"bitcoinAnchorDigestAlgorithm\": \"SHA-256\",\n"
+                    + "  \"otsSidecar\": " + JSONObject.quote(sealedFile.getName() + ".ots") + ",\n"
+                    + "  \"note\": \"SHA-512 and SHA-256 are computed over the complete sealed document. "
+                    + "Anchor the SHA-256 to Bitcoin with OpenTimestamps and keep the .ots sidecar next to this file.\"\n"
+                    + "}\n";
+            File sidecar = new File(sealedFile.getParentFile(), sealedFile.getName() + ".verum-seal.json");
+            try (FileOutputStream fos = new FileOutputStream(sidecar)) {
+                fos.write(json.getBytes(java.nio.charset.StandardCharsets.UTF_8));
+            }
+        } catch (Throwable ignored) {
+            // Sidecar generation is best-effort and must never break sealing.
+        }
     }
 
     private void verifySelectedDocumentSeal() {
