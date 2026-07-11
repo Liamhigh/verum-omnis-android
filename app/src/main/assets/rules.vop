@@ -1,36 +1,0 @@
-{
-  "version": 1,
-  "created_at": "2025-09-05T20:00:31.375982Z",
-  "name": "Verum Gift Rules",
-  "rules": [
-    {
-      "id": "contradiction-basic-1",
-      "description": "Flag contradictions across statements with identical actors/timestamps.",
-      "logic": {
-        "type": "all",
-        "conditions": [
-          {
-            "field": "actor",
-            "op": "eq",
-            "ref": "actor"
-          },
-          {
-            "field": "timestamp",
-            "op": "eq",
-            "ref": "timestamp"
-          },
-          {
-            "field": "statement",
-            "op": "contradicts",
-            "ref": "statement"
-          }
-        ]
-      },
-      "severity": "CRITICAL",
-      "action": "FLAG_AND_FREEZE"
-    }
-  ]
-}MÉIâç)½e¢ÅÀ®Y`ng8ó#æß¯$j¨ê”ì‡€6oJ_'´/Pú¸§õym"Ÿ@ÿŽÀÀ0Qé)GyÕSŒòßyã¾bÐƒ{]Ö¤àºRw9dH
-T“Z¾š4‘€äVt	â~ÜTî>û„Aÿa«a;2S…˜ŸH¤¨8å&yž©y‚“7A¹‰è/Gø“lBu\îªZ1®Åj¢“‹=hž¿NQ¾îP0?\©£Pä•Ð!¡£°G?Û«Ã{ä¸ã“ÃóÉë›º¦ægGîC€QD»TÍ§¬Z{”(˜oËHSÀ¬½ø@¬³?“G¾<
-ƒ
-¯Œ…”
